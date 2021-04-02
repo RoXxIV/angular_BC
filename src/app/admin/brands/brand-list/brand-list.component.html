@@ -1,1 +1,6 @@
-<app-brand *ngFor="let b of brandList" [brand]="b"></app-brand>
+<app-brand *ngFor="let b of brandList; let i = index" [brand]="b">
+  {{ i }}
+</app-brand>
+<button routerLink="/brands/add" class="btn btn-success my-3">
+  Ajouter une marque
+</button>

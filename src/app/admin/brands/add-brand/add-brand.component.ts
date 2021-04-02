@@ -11,6 +11,7 @@ import { BrandHttpService } from '../../../services/brand-http.service';
 export class AddBrandComponent implements OnInit {
 
   brandForm: FormGroup;
+  submitted = false;
 
   constructor(private fb: FormBuilder, private brandHttpService: BrandHttpService, private router: Router) { }
 
@@ -24,6 +25,7 @@ export class AddBrandComponent implements OnInit {
   }
 
   submitForm(): void {
+    this.submitted = true;
     if (this.brandForm.valid){
       this.brandHttpService.add(this.brandForm.value).subscribe(v => this.router.navigateByUrl('/brands'));
     }

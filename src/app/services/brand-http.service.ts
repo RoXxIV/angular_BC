@@ -18,4 +18,8 @@ export class BrandHttpService {
   add(brand: Brand): Observable<Brand>{
     return this.http.post<Brand>(this.url, brand);
   }
+
+  findById(id: number): Observable<Brand> {
+    return this.http.get<Brand>(`${this.url}/${id}`);
+  }
 }

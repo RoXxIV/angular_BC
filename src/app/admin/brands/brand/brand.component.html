@@ -1,4 +1,8 @@
 <ul>
+  <li>N°<ng-content></ng-content></li>
   <li>ID: {{ brand.id }}</li>
   <li>Nom: {{ brand.name }}</li>
 </ul>
+<button routerLink="/brands/{{ brand.id }}" class="btn btn-info">
+  Details
+</button>

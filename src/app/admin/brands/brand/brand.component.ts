@@ -9,6 +9,7 @@ import { Brand } from '../../../model/brand';
 export class BrandComponent implements OnInit {
 
   @Input() brand: Brand;
+
   constructor() { }
 
   ngOnInit(): void {

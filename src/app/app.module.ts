@@ -8,10 +8,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddBrandComponent } from './admin/brands/add-brand/add-brand.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { BrandDetailsComponent } from './admin/brands/brand-details/brand-details.component';
 
 const routes: Routes = [
   {path: 'brands', component: BrandListComponent},
   {path: 'brands/add', component: AddBrandComponent},
+  {path: 'brands/:id', component: BrandDetailsComponent},
   {path: '', redirectTo: 'brands', pathMatch: 'full'},
 ];
 
@@ -20,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     BrandListComponent,
     BrandComponent,
-    AddBrandComponent
+    AddBrandComponent,
+    BrandDetailsComponent
   ],
   imports: [
     BrowserModule,
