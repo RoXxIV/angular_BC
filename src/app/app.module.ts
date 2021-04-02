@@ -5,17 +5,30 @@ import { AppComponent } from './app.component';
 import { BrandListComponent } from './admin/brands/brand-list/brand-list.component';
 import { BrandComponent } from './admin/brands/brand/brand.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddBrandComponent } from './admin/brands/add-brand/add-brand.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: 'brands', component: BrandListComponent},
+  {path: 'brands/add', component: AddBrandComponent},
+  {path: '', redirectTo: 'brands', pathMatch: 'full'},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     BrandListComponent,
-    BrandComponent
+    BrandComponent,
+    AddBrandComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

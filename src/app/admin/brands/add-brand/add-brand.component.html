@@ -1,0 +1,13 @@
+<form [formGroup]="brandForm" (ngSubmit)="submitForm()">
+  <div class="form-group">
+    <label for="formName">Marque:</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      id="formName"
+    />
+  </div>
+  <button type="submit" class="btn btn-success my-2">Ajouter</button>
+  <button routerLink="/brands/" class="btn btn-info">Retour</button>
+</form>
