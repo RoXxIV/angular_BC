@@ -10,12 +10,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrandDetailsComponent } from './admin/brands/brand-details/brand-details.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AddModelComponent } from './admin/models/add-model/add-model.component';
+import { ModelComponent } from './admin/models/model/model.component';
+import { ModelDetailsComponent } from './admin/models/model-details/model-details.component';
+import { ModelListComponent } from './admin/models/model-list/model-list.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent},
   {path: 'brands', component: BrandListComponent},
   {path: 'brands/add', component: AddBrandComponent},
   {path: 'brands/:id', component: BrandDetailsComponent},
+  {path: 'models', component: ModelListComponent},
+  {path: 'models/add', component: AddModelComponent},
+  {path: 'models/:id', component: ModelDetailsComponent},
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
 ];
 
@@ -26,7 +33,11 @@ const routes: Routes = [
     BrandComponent,
     AddBrandComponent,
     BrandDetailsComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AddModelComponent,
+    ModelComponent,
+    ModelDetailsComponent,
+    ModelListComponent
   ],
   imports: [
     BrowserModule,
