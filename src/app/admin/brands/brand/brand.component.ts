@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Brand } from '../../../model/brand';
 
 @Component({
-  selector: 'app-brand',
+  // tslint:disable-next-line:component-selector
+  selector: '[app-brand]',
   templateUrl: './brand.component.html',
   styleUrls: ['./brand.component.scss']
 })

@@ -28,6 +28,7 @@ export class AddBrandComponent implements OnInit {
     this.submitted = true;
     if (this.brandForm.valid){
       this.brandHttpService.add(this.brandForm.value).subscribe(v => this.router.navigateByUrl('/brands'));
+      window.location.reload();
     }
   }
 

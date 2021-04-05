@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Brand } from 'src/app/model/brand';
 import { BrandHttpService } from '../../../services/brand-http.service';
@@ -11,13 +13,13 @@ import { BrandHttpService } from '../../../services/brand-http.service';
 export class BrandListComponent implements OnInit {
 
   brandList: Observable<Brand[]>;
-  index = 0;
 
   constructor(private brandHttpService: BrandHttpService) { }
 
   ngOnInit(): void {
     this.brandHttpService.findAll().subscribe(m => this.brandList = m['hydra:member']);
     console.log(this.brandList);
+
   }
 
 }
