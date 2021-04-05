@@ -13,6 +13,10 @@ export class BrandDetailsComponent implements OnInit {
   brandDetails: Brand;
   constructor(private route: ActivatedRoute, private brandHttpService: BrandHttpService, private router: Router) { }
 
+  deleteBrand(): void{
+    this.brandHttpService.deleteOne(this.brandDetails.id).subscribe(v => this.router.navigateByUrl('/brands'));
+  }
+
   ngOnInit(): void {
 
     const id = this.route.snapshot.paramMap.get('id');
