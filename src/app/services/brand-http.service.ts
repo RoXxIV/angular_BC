@@ -15,4 +15,15 @@ export class BrandHttpService {
   findAll(): Observable<Brand[]> {
     return this.http.get<Brand[]>(this.url);
   }
+  add(brand: Brand): Observable<Brand>{
+    return this.http.post<Brand>(this.url, brand);
+  }
+
+  findById(id: number): Observable<Brand> {
+    return this.http.get<Brand>(`${this.url}/${id}`);
+  }
+
+  deleteOne(id: number): Observable<Brand>{
+    return this.http.delete<Brand>(`${this.url}/${id}`);
+  }
 }

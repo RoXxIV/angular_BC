@@ -1,0 +1,32 @@
+<section>
+  <div class="row">
+    <table class="col-10 col-md-8 mx-auto">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Marque</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ brandDetails?.id }}</td>
+          <td>{{ brandDetails?.name }}</td>
+          <td>
+            <ul class="d-flex">
+              <li>
+                <button class="btn btn-success mr-3">Editer</button>
+              </li>
+              <li>
+                <button (click)="deleteBrand()" class="btn btn-danger">
+                  Supprimer
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button routerLink="/brands" class="btn btn-primary">Retour</button>
+</section>
