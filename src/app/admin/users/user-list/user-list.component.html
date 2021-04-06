@@ -1,24 +1,25 @@
 <div class="row">
   <div class="col-md-8 mx-auto text-center">
-    <h2 class="my-4">Gestion des marques</h2>
-    <table class="table table table-striped">
+    <h2 class="my-4">Gestion des Utilisateurs</h2>
+    <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
           <th>#</th>
           <th>ID</th>
-          <th>Marque</th>
+          <th>Role</th>
+          <th>Pseudo</th>
+          <th>Email</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr app-brand *ngFor="let b of brandList; let i = index" [brand]="b">
+        <tr app-user *ngFor="let u of userList; let i = index" [user]="u">
           {{
             i
           }}
         </tr>
       </tbody>
     </table>
-    <app-add-brand></app-add-brand>
     <button routerLink="/admin" class="btn btn-info">Retour</button>
   </div>
 </div>

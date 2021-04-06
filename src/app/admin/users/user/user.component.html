@@ -1,0 +1,10 @@
+<td><ng-content></ng-content></td>
+<td>{{ user.id }}</td>
+<td>{{ user.roles }}</td>
+<td>{{ user.username }}</td>
+<td>{{ user.email }}</td>
+<td>
+  <button routerLink="/users/{{ user.id }}" class="btn btn-info">
+    Details
+  </button>
+</td>
