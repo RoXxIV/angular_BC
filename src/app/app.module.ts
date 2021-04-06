@@ -14,6 +14,9 @@ import { AddModelComponent } from './admin/models/add-model/add-model.component'
 import { ModelComponent } from './admin/models/model/model.component';
 import { ModelDetailsComponent } from './admin/models/model-details/model-details.component';
 import { ModelListComponent } from './admin/models/model-list/model-list.component';
+import { UserListComponent } from './admin/users/user-list/user-list.component';
+import { UserDetailsComponent } from './admin/users/user-details/user-details.component';
+import { UserComponent } from './admin/users/user/user.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent},
@@ -23,6 +26,8 @@ const routes: Routes = [
   {path: 'models', component: ModelListComponent},
   {path: 'models/add', component: AddModelComponent},
   {path: 'models/:id', component: ModelDetailsComponent},
+  {path: 'users', component: UserListComponent},
+  {path: 'users/:id', component: UserDetailsComponent},
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
 ];
 
@@ -37,7 +42,10 @@ const routes: Routes = [
     AddModelComponent,
     ModelComponent,
     ModelDetailsComponent,
-    ModelListComponent
+    ModelListComponent,
+    UserComponent,
+    UserDetailsComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
