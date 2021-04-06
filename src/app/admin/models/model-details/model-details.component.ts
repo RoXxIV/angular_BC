@@ -13,18 +13,19 @@ import { Brand } from '../../../model/brand';
 export class ModelDetailsComponent implements OnInit {
 
   modelDetail: Model;
-  // brand: Brand;
+  brand: Brand;
   constructor(private route: ActivatedRoute, private brandHttpService: BrandHttpService,  private modelHttpService: ModelHttpService,
               private router: Router) { }
 
   deleteModel(): void{
     this.modelHttpService.deleteOne(this.modelDetail.id).subscribe(v => this.router.navigateByUrl('/models'));
   }
+
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.modelHttpService.findById(Number(id)).subscribe(model => this.modelDetail = model);
+    this.brandHttpService.findById(Number(this.modelDetail.brand.split('/').pop())).subscribe(b => this.brand = b);
 
-    // this.brandHttpService.findById(Number(this.modelDetail.brand.split('/').pop())).subscribe(b => this.brand = b);
   }
 
 }

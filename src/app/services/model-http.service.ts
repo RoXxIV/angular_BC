@@ -27,4 +27,5 @@ export class ModelHttpService {
   deleteOne(id: number): Observable<Model>{
     return this.http.delete<Model>(`${this.url}/${id}`);
   }
+
 }
