@@ -16,7 +16,6 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
     this.userHttpService.findAll().subscribe(u => this.userList = u['hydra:member']);
-    console.log(this.userList);
   }
 
 }

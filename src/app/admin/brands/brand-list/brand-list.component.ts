@@ -18,8 +18,6 @@ export class BrandListComponent implements OnInit {
 
   ngOnInit(): void {
     this.brandHttpService.findAll().subscribe(m => this.brandList = m['hydra:member']);
-    console.log(this.brandList);
-
   }
 
 }

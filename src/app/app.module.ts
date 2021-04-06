@@ -17,6 +17,9 @@ import { ModelListComponent } from './admin/models/model-list/model-list.compone
 import { UserListComponent } from './admin/users/user-list/user-list.component';
 import { UserDetailsComponent } from './admin/users/user-details/user-details.component';
 import { UserComponent } from './admin/users/user/user.component';
+import { SkateshopComponent } from './admin/skateshops/skateshop/skateshop.component';
+import { SkateshopListComponent } from './admin/skateshops/skateshop-list/skateshop-list.component';
+import { SkateshopDetailsComponent } from './admin/skateshops/skateshop-details/skateshop-details.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent},
@@ -28,6 +31,8 @@ const routes: Routes = [
   {path: 'models/:id', component: ModelDetailsComponent},
   {path: 'users', component: UserListComponent},
   {path: 'users/:id', component: UserDetailsComponent},
+  {path: 'skateshops', component: SkateshopListComponent},
+  {path: 'skateshops/:id', component: SkateshopDetailsComponent},
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
 ];
 
@@ -45,7 +50,10 @@ const routes: Routes = [
     ModelListComponent,
     UserComponent,
     UserDetailsComponent,
-    UserListComponent
+    UserListComponent,
+    SkateshopComponent,
+    SkateshopListComponent,
+    SkateshopDetailsComponent
   ],
   imports: [
     BrowserModule,
