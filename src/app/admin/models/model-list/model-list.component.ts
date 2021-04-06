@@ -16,7 +16,6 @@ export class ModelListComponent implements OnInit {
 
   ngOnInit(): void {
     this.modelHttpService.findAll().subscribe(m => this.modelList = m['hydra:member']);
-    console.log(this.modelList);
   }
 
 }

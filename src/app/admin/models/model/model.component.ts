@@ -11,14 +11,13 @@ import { Brand } from '../../../model/brand';
 export class ModelComponent implements OnInit {
 
   @Input() model: Model;
-  brand: Brand;
 
-  constructor(private brandHttpService: BrandHttpService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.model);
-    console.log(this.model.brand.substr(- 1));
-    this.brandHttpService.findById(Number(this.model.brand.split('/').pop())).subscribe(b => this.brand = b);
+
+    console.log(this.model.brand);
   }
 
 }
