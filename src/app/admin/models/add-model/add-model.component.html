@@ -1,0 +1,25 @@
+<ul *ngIf="submitted">
+  <li *ngIf="modelForm.controls['name']?.errors?.required">
+    Le champs Modele est vide ou incorrect
+  </li>
+</ul>
+<form [formGroup]="modelForm" (ngSubmit)="submitForm()">
+  <div class="form-group">
+    <label for="formName">Modele</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      id="formName"
+    />
+  </div>
+  <div formGroupName="brand">
+    <label for="brandid">Supplier</label>
+    <select formControlName="id" id="brandid">
+      <option [value]="b.id" *ngFor="let b of brands">
+        {{ b.name }}
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success my-2">Ajouter</button>
+</form>

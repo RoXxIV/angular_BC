@@ -1,0 +1,9 @@
+<td><ng-content></ng-content></td>
+<td>{{ model?.id }}</td>
+<td>{{ model?.name }}</td>
+<td>{{ model?.brand["name"] }}</td>
+<td>
+  <button routerLink="/models/{{ model.id }}" class="btn btn-info">
+    Details
+  </button>
+</td>

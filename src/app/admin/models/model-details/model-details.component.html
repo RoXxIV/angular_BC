@@ -1,0 +1,34 @@
+<section>
+  <div class="row">
+    <table class="col-10 col-md-8 mx-auto">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Modele</th>
+          <th>Marque</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ modelDetail?.id }}</td>
+          <td>{{ modelDetail?.name }}</td>
+          <td>{{ modelDetail?.brand["name"] }}</td>
+          <td>
+            <ul class="d-flex">
+              <li>
+                <button class="btn btn-success mr-3">Editer</button>
+              </li>
+              <li>
+                <button (click)="deleteModel()" class="btn btn-danger">
+                  Supprimer
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button routerLink="/models" class="btn btn-primary">Retour</button>
+</section>
