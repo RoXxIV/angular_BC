@@ -1,0 +1,44 @@
+<section class="row">
+  <div class="col-10 col-md-8 mx-auto">
+    <h2 class="my-4 text-center">Gestion des Boutiques</h2>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>dirigeant</th>
+          <th>Telephone</th>
+          <th>Rue</th>
+          <th>Code Postal</th>
+          <th>Ville</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ skateshopDetails?.id }}</td>
+          <td>{{ skateshopDetails?.name }}</td>
+          <td>{{ skateshopDetails?.professional["email"] }}</td>
+          <td>{{ skateshopDetails?.phone }}</td>
+          <td>{{ skateshopDetails?.street }}</td>
+          <td>{{ skateshopDetails?.zipCode }}</td>
+          <td>{{ skateshopDetails?.city }}</td>
+
+          <td>
+            <ul class="d-flex">
+              <li>
+                <button class="btn btn-success mr-3">Editer</button>
+              </li>
+              <li>
+                <button (click)="deleteSkateshop()" class="btn btn-danger">
+                  Supprimer
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button routerLink="/skateshops" class="btn btn-primary">Retour</button>
+  </div>
+</section>

@@ -17,7 +17,7 @@ export class ModelComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.model.brand);
+    console.log(this.model);
   }
 
 }

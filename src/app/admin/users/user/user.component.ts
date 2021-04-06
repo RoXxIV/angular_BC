@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.user.email);
+    console.log(this.user);
   }
 
 }

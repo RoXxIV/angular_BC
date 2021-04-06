@@ -1,0 +1,10 @@
+<td><ng-content></ng-content></td>
+<td>{{ skateshop?.id }}</td>
+<td>{{ skateshop?.name }}</td>
+<td>{{ skateshop.professional["email"] }}</td>
+<td>{{ skateshop?.phone }}</td>
+<td>
+  <button routerLink="/skateshops/{{ skateshop.id }}" class="btn btn-info">
+    Details
+  </button>
+</td>
