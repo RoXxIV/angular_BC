@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Model } from '../../../model/model';
+import { ModelHttpService } from '../../../services/model-http.service';
 
 @Component({
   selector: 'app-model-list',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelListComponent implements OnInit {
 
-  constructor() { }
+  modelList: Observable<Model[]>;
+
+  constructor(private modelHttpService: ModelHttpService) { }
 
   ngOnInit(): void {
+    this.modelHttpService.findAll().subscribe(m => this.modelList = m['hydra:member']);
+    console.log(this.modelList);
   }
 
 }
