@@ -1,1 +1,27 @@
-<p>advert-list works!</p>
+<div class="row">
+  <div class="col-md-8 mx-auto text-center">
+    <h2 class="my-4">Gestion des Annonces</h2>
+    <table class="table table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>ID</th>
+          <th>Crée le</th>
+          <th>Posté par</th>
+          <th>Modeles</th>
+          <th>Prix</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr app-advert *ngFor="let a of advertList; let i = index" [advert]="a">
+          {{
+            i
+          }}
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success" routerLink="/adverts/add">Ajouter</button>
+    <button routerLink="/admin" class="btn btn-info">Retour</button>
+  </div>
+</div>

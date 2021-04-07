@@ -37,6 +37,9 @@ const routes: Routes = [
   {path: 'users/:id', component: UserDetailsComponent},
   {path: 'skateshops', component: SkateshopListComponent},
   {path: 'skateshops/:id', component: SkateshopDetailsComponent},
+  {path: 'adverts', component: AdvertListComponent},
+  {path: 'adverts/add', component: AddAdvertComponent},
+  {path: 'adverts/:id', component: AdvertDetailsComponent},
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
 ];
 
