@@ -24,6 +24,7 @@ import { AdvertComponent } from './admin/adverts/advert/advert.component';
 import { AdvertListComponent } from './admin/adverts/advert-list/advert-list.component';
 import { AdvertDetailsComponent } from './admin/adverts/advert-details/advert-details.component';
 import { AddAdvertComponent } from './admin/adverts/add-advert/add-advert.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent},
@@ -64,7 +65,8 @@ const routes: Routes = [
     AdvertComponent,
     AdvertListComponent,
     AdvertDetailsComponent,
-    AddAdvertComponent
+    AddAdvertComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
