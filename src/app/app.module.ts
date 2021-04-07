@@ -20,6 +20,10 @@ import { UserComponent } from './admin/users/user/user.component';
 import { SkateshopComponent } from './admin/skateshops/skateshop/skateshop.component';
 import { SkateshopListComponent } from './admin/skateshops/skateshop-list/skateshop-list.component';
 import { SkateshopDetailsComponent } from './admin/skateshops/skateshop-details/skateshop-details.component';
+import { AdvertComponent } from './admin/adverts/advert/advert.component';
+import { AdvertListComponent } from './admin/adverts/advert-list/advert-list.component';
+import { AdvertDetailsComponent } from './admin/adverts/advert-details/advert-details.component';
+import { AddAdvertComponent } from './admin/adverts/add-advert/add-advert.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent},
@@ -53,7 +57,11 @@ const routes: Routes = [
     UserListComponent,
     SkateshopComponent,
     SkateshopListComponent,
-    SkateshopDetailsComponent
+    SkateshopDetailsComponent,
+    AdvertComponent,
+    AdvertListComponent,
+    AdvertDetailsComponent,
+    AddAdvertComponent
   ],
   imports: [
     BrowserModule,
