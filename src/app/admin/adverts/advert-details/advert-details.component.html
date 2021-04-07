@@ -1,0 +1,60 @@
+<section class="row">
+  <div class="col-10 col-md-8 mx-auto">
+    <h2 class="my-4 text-center">Gestion des Annonces</h2>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Créer le</th>
+          <th>Posté par</th>
+          <th>Modele</th>
+          <th>Marque</th>
+          <th>Prix</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ advertDetail?.id }}</td>
+          <td>{{ advertDetail?.released_at | date: "dd/MM/YYYY" }}</td>
+          <td>{{ advertDetail?.skateshop["name"] }}</td>
+          <td>{{ advertDetail?.model["brand"]["name"] }}</td>
+          <td>{{ advertDetail?.model["name"] }}</td>
+          <td>{{ advertDetail?.price / 100 }}</td>
+          <td>
+            <ul class="d-flex">
+              <li>
+                <button class="btn btn-success mr-3">Editer</button>
+              </li>
+              <li>
+                <button (click)="deleteAdvert()" class="btn btn-danger">
+                  Supprimer
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <img [src]="advertDetail?.picturePath" alt="" />
+    </div>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <th>Description</th>
+        <th>Longueur</th>
+        <th>Largeur</th>
+        <th>Shape</th>
+        <th>Concave</th>
+      </thead>
+      <tbody>
+        <td>{{ advertDetail?.description }}</td>
+        <td>{{ advertDetail?.length }}</td>
+        <td>{{ advertDetail?.width }}</td>
+        <td>{{ advertDetail?.shape }}</td>
+        <td>{{ advertDetail?.concave }}</td>
+      </tbody>
+    </table>
+    <button routerLink="/adverts" class="btn btn-primary">Retour</button>
+  </div>
+</section>
