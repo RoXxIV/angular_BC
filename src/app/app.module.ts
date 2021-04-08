@@ -25,6 +25,8 @@ import { AdvertListComponent } from './admin/adverts/advert-list/advert-list.com
 import { AdvertDetailsComponent } from './admin/adverts/advert-details/advert-details.component';
 import { AddAdvertComponent } from './admin/adverts/add-advert/add-advert.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent},
@@ -41,7 +43,8 @@ const routes: Routes = [
   {path: 'adverts', component: AdvertListComponent},
   {path: 'adverts/add', component: AddAdvertComponent},
   {path: 'adverts/:id', component: AdvertDetailsComponent},
-  {path: '', redirectTo: 'admin', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
 @NgModule({
@@ -66,7 +69,9 @@ const routes: Routes = [
     AdvertListComponent,
     AdvertDetailsComponent,
     AddAdvertComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<select #Select (change)="selectedBrand(Select.value)">
+  <option [value]="b.name" *ngFor="let b of brands">
+    {{ b.name }}
+  </option>
+</select>
+
+<button (click)="showAll()">voir tout</button>
+<!--ANNONCES------------>
+<section id="annonces" class="container mt-5 mx-auto">
+  <h2 class="mb-5 ml-4">Annonces récentes</h2>
+
+  <div
+    app-article
+    class="row text-center"
+    *ngFor="let a of recentAdvert"
+    [advert]="a"
+  >
+    <!--boucle ici-->
+    <!--boucle ici-->
+  </div>
+</section>
