@@ -1,24 +1,3 @@
-#card-brand {
-  transition: all 550ms ease;
-  backface-visibility: hidden;
-}
-
-#card:hover #card-brand {
-  -webkit-transform: scale(2.5);
-  -ms-transform: scale(2.5);
-  transform: scale(2.5);
-}
-
-#card-img {
-  transition: all 700ms ease;
-  backface-visibility: hidden;
-}
-
-#card:hover #card-img {
-  -webkit-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  transform: scale(0.95);
-}
 
 /*-_-_-_-_-_-_-_-_-_-_FILTRES-_-_-_-_-_-_-_-_-_-_*/
 select {
