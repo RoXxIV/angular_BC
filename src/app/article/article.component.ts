@@ -12,6 +12,7 @@ export class ArticleComponent implements OnInit {
 
   @Input() advert: Advert;
   ngOnInit(): void {
+    console.log(this.advert);
   }
 
 }

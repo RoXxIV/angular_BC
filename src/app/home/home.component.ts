@@ -5,6 +5,8 @@ import { AdvertHttpService } from '../services/advert-http.service';
 import { BrandHttpService } from '../services/brand-http.service';
 import { Brand } from '../model/brand';
 import { NgForm } from '@angular/forms';
+import { Model } from '../model/model';
+import { ModelHttpService } from '../services/model-http.service';
 
 @Component({
   selector: 'app-home',
@@ -13,16 +15,22 @@ import { NgForm } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private advertHttpService: AdvertHttpService, private brandHttpService: BrandHttpService) { }
+  constructor(private advertHttpService: AdvertHttpService, private brandHttpService: BrandHttpService, private modelHttpService: ModelHttpService) { }
 
   recentAdvert: Observable<Advert[]>;
    brands: Observable<Brand[]>;
-
+   models: Observable<Model>;
       selectedBrand(brand: any): void{
         console.log('curent state is ' + brand);
         this.advertHttpService.findAll().subscribe(m => this.recentAdvert =
       // tslint:disable-next-line:no-string-literal
       m['hydra:member'].filter(p => p.model['brand']['name'] === brand));
+      }
+      selectedModel(model: any): void{
+        console.log('curent state is ' + model);
+        this.advertHttpService.findAll().subscribe(m => this.recentAdvert =
+      // tslint:disable-next-line:no-string-literal
+      m['hydra:member'].filter(p => p.model["name"] === model));
       }
 
      showAll(): void{
@@ -33,6 +41,7 @@ export class HomeComponent implements OnInit {
 
     this.advertHttpService.findAll().subscribe(m => this.recentAdvert = m['hydra:member']);
     this.brandHttpService.findAll().subscribe(m => this.brands = m['hydra:member']);
+    this.modelHttpService.findAll().subscribe(m => this.models = m['hydra:member']);
 
   }
 

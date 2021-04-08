@@ -28,6 +28,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
 
+
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent},
   {path: 'brands', component: BrandListComponent},
@@ -71,7 +72,7 @@ const routes: Routes = [
     AddAdvertComponent,
     HeaderComponent,
     HomeComponent,
-    ArticleComponent
+    ArticleComponent,
   ],
   imports: [
     BrowserModule,
