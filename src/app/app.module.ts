@@ -27,6 +27,7 @@ import { AddAdvertComponent } from './admin/adverts/add-advert/add-advert.compon
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 const routes: Routes = [
@@ -73,6 +74,7 @@ const routes: Routes = [
     HeaderComponent,
     HomeComponent,
     ArticleComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
