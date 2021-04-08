@@ -9,13 +9,16 @@
 <section id="annonces" class="container mt-5 mx-auto">
   <h2 class="mb-5 ml-4">Annonces récentes</h2>
 
-  <div
-    app-article
-    class="row text-center"
-    *ngFor="let a of recentAdvert"
-    [advert]="a"
-  >
+  <div class="row text-center">
     <!--boucle ici-->
+    <div
+      app-article
+      *ngFor="let a of recentAdvert"
+      [advert]="a"
+      id="card"
+      class="col-lg-3 col-md-4 col-sm-6"
+      style="font-size: 20px"
+    ></div>
     <!--boucle ici-->
   </div>
 </section>

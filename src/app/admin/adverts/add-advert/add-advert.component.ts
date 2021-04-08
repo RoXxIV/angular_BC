@@ -55,7 +55,7 @@ export class AddAdvertComponent implements OnInit {
       shape: ['', Validators.required],
       concave: ['', Validators.required],
       picturePath: ['unephoto.jgp', Validators.required],
-      price: [50, Validators.required],
+      price: [],
       model: this.fb.group({
         id: 1
       }),
