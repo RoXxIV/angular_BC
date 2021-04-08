@@ -40,6 +40,18 @@ ul {
   padding-left: 0;
 }
 
+#logo,
+select,
+#annonces,
+#description button,
+footer,
+#article span,
+#article #prix,
+#article text,
+#article h2 {
+  font-family: "Bebas Neue", cursive;
+}
+
 /*-_-_-_-_-_-_-_-_-_-_VARIABLES-_-_-_-_-_-_-_-_-_-_*/
 :root {
   --rouge: #8c0b0a;
@@ -48,6 +60,27 @@ ul {
   --gris: #f1f5f7;
 }
 
+#card-brand {
+  transition: all 550ms ease;
+  backface-visibility: hidden;
+}
+
+#card:hover #card-brand {
+  -webkit-transform: scale(2.5);
+  -ms-transform: scale(2.5);
+  transform: scale(2.5);
+}
+
+#card-img {
+  transition: all 700ms ease;
+  backface-visibility: hidden;
+}
+
+#card:hover #card-img {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
-

@@ -1,0 +1,93 @@
+<section id="filtres" class="container-fluid">
+  <form>
+    <!--marque liste-->
+    <div class="row">
+      <div div id="blocBrand" class="col-6 col-sm-4 col-md-3 test">
+        <select
+          class="form-select"
+          #SelectBrand
+          (change)="selectedBrand(SelectBrand.value)"
+        >
+          <option [value]="b.name" *ngFor="let b of brands">
+            {{ b.name }}
+          </option>
+        </select>
+      </div>
+      <!--collection liste-->
+      <div id="blocCollection" class="col-6 col-sm-4 col-md-3">
+        <select
+          class="form-select"
+          #SelectModel
+          (change)="selectedModel(SelectModel.value)"
+        >
+          <option [value]="m.name" *ngFor="let m of models">
+            {{ m.name }}
+          </option>
+        </select>
+      </div>
+      <!--largeur liste-->
+      <div id="blocLargeur" class="col-6 col-sm-4 col-md-3">
+        <select class="form-select">
+          <option selected>Largeur</option>
+          <option value="7.5">7.5</option>
+          <option value="7.6">7.6</option>
+          <option value="7.750">7.750</option>
+          <option value="8">8</option>
+          <option value="8.125">8.125</option>
+          <option value="8.250">8.250</option>
+          <option value="8.500">8.500</option>
+          <option value="9">9</option>
+          <option value="9.5">9.5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <!--concave liste-->
+      <div id="blocConcave" class="col-6 col-sm-4 col-md-3">
+        <select class="form-select">
+          <option selected>Concave</option>
+          <option value="Leger">Leger</option>
+          <option value="Moyen">Moyen</option>
+          <option value="">Forte</option>
+        </select>
+      </div>
+      <!--shape liste-->
+      <div id="blocShape" class="col-6 col-sm-4 col-md-3">
+        <select class="form-select">
+          <option selected>Shape</option>
+          <option value="Strandard">Strandard</option>
+          <option value="Shaped">Shaped</option>
+          <option value="Full">Full</option>
+        </select>
+      </div>
+      <!--prix-->
+      <div id="blocPrix" class="col-6 col-sm-4 col-md-3">
+        <select class="form-select">
+          <option selected>Prix</option>
+          <option value="prixAsc">par ordre croissant</option>
+          <option value="prixDesc">par ordre decroissant</option>
+        </select>
+      </div>
+      <div id="cancel" class="col-6 col-sm-4 col-md-3">
+        <button class="btn" (click)="showAll()">Supprimer les filtres</button>
+      </div>
+    </div>
+  </form>
+</section>
+
+<!--ANNONCES------------>
+<section id="annonces" class="container mt-5 mx-auto">
+  <h2 class="mb-5 ml-4">Annonces récentes</h2>
+
+  <div class="row text-center">
+    <!--boucle ici-->
+    <div
+      app-article
+      *ngFor="let a of recentAdvert"
+      [advert]="a"
+      id="card"
+      class="col-lg-3 col-md-4 col-sm-6"
+      style="font-size: 20px"
+    ></div>
+    <!--boucle ici-->
+  </div>
+</section>
