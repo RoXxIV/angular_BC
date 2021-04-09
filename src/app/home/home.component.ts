@@ -15,34 +15,53 @@ import { ModelHttpService } from '../services/model-http.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private advertHttpService: AdvertHttpService, private brandHttpService: BrandHttpService, private modelHttpService: ModelHttpService) { }
+  constructor(private advertHttpService: AdvertHttpService, private brandHttpService: BrandHttpService,
+              private modelHttpService: ModelHttpService) { }
 
   recentAdvert: Observable<Advert[]>;
-   brands: Observable<Brand[]>;
-   models: Observable<Model>;
-      selectedBrand(brand: any): void{
-        console.log('curent state is ' + brand);
-        this.advertHttpService.findAll().subscribe(m => this.recentAdvert =
-      // tslint:disable-next-line:no-string-literal
-      m['hydra:member'].filter(p => p.model['brand']['name'] === brand));
+  brands: Observable<Brand[]>;
+  models: Observable<Model[]>;
+
+  // Gestion du select Marque
+  selectedBrand(brand: any): any{
+
+      console.log('curent state is ' + brand);
+
+      this.advertHttpService.findAll().subscribe
+        (
+          m => this.recentAdvert = m['hydra:member']
+          .filter(p => p.model['brand']['name'] === brand)
+        );
+        // gestion des modeles
+      this.modelHttpService.findAll().subscribe
+        (
+          m => this.models = m['hydra:member']
+          .filter(
+            item => item.brand.name === brand
+          )
+        );
       }
       selectedModel(model: any): void{
+
         console.log('curent state is ' + model);
-        this.advertHttpService.findAll().subscribe(m => this.recentAdvert =
-      // tslint:disable-next-line:no-string-literal
-      m['hydra:member'].filter(p => p.model["name"] === model));
+
+        this.advertHttpService.findAll().subscribe
+          (
+            m => this.recentAdvert = m['hydra:member'].
+            filter(p => p.model['name'] === model)
+          );
       }
 
-     showAll(): void{
-       this.advertHttpService.findAll().subscribe(m => this.recentAdvert = m['hydra:member']);
+       showAll(): void{
+       this.advertHttpService.findAll().subscribe
+       (
+         m => this.recentAdvert = m['hydra:member']
+       );
      }
 
-  ngOnInit(): void {
-
-    this.advertHttpService.findAll().subscribe(m => this.recentAdvert = m['hydra:member']);
-    this.brandHttpService.findAll().subscribe(m => this.brands = m['hydra:member']);
-    this.modelHttpService.findAll().subscribe(m => this.models = m['hydra:member']);
-
-  }
+      ngOnInit(): void {
+        this.advertHttpService.findAll().subscribe(m => this.recentAdvert = m['hydra:member']);
+        this.brandHttpService.findAll().subscribe(m => this.brands = m['hydra:member']);
+      }
 
 }
