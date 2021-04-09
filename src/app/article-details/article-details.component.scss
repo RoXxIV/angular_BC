@@ -1,0 +1,35 @@
+#description button {
+  border: 1.5px solid var(--bleu);
+}
+
+#article h2 {
+  font-size: 25px;
+}
+
+#article ul {
+  font-size: 18px;
+}
+
+#article img {
+  width: 100%;
+  border: 1.5px solid var(--bleu);
+  border-radius: 10px;
+}
+
+#article .fa-heart {
+  font-size: 25px;
+}
+
+#article span,
+#article #prix {
+  font-style: italic;
+  font-size: 20px;
+}
+
+#article button {
+  font-size: 20px;
+}
+
+#article text {
+  font-size: 50px;
+}

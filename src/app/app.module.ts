@@ -28,6 +28,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
 import { FooterComponent } from './footer/footer.component';
+import { ArticleDetailsComponent } from './article-details/article-details.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path: 'adverts/add', component: AddAdvertComponent},
   {path: 'adverts/:id', component: AdvertDetailsComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'article/:id', component: ArticleDetailsComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
@@ -75,6 +77,7 @@ const routes: Routes = [
     HomeComponent,
     ArticleComponent,
     FooterComponent,
+    ArticleDetailsComponent,
   ],
   imports: [
     BrowserModule,
