@@ -29,6 +29,7 @@ import { HomeComponent } from './home/home.component';
 import { ArticleComponent } from './article/article.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 
 const routes: Routes = [
@@ -78,6 +79,7 @@ const routes: Routes = [
     ArticleComponent,
     FooterComponent,
     ArticleDetailsComponent,
+    QuestionsComponent,
   ],
   imports: [
     BrowserModule,
