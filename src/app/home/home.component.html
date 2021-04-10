@@ -31,7 +31,11 @@
       </div>
       <!--largeur liste-->
       <div id="blocLargeur" class="col-6 col-sm-4 col-md-3">
-        <select class="form-select">
+        <select
+          class="form-select"
+          #SelectWidth
+          (change)="selectedWidth(SelectWidth.value)"
+        >
           <option selected>Largeur</option>
           <option value="7.5">7.5</option>
           <option value="7.6">7.6</option>
@@ -72,7 +76,9 @@
         </select>
       </div>
       <div id="cancel" class="col-6 col-sm-4 col-md-3">
-        <button class="btn" (click)="showAll()">Supprimer les filtres</button>
+        <button class="btn" (click)="initAdverts()">
+          Supprimer les filtres
+        </button>
       </div>
     </div>
   </form>
@@ -86,7 +92,7 @@
     <!--boucle ici-->
     <div
       app-article
-      *ngFor="let a of recentAdvert"
+      *ngFor="let a of AdvertList"
       [advert]="a"
       id="card"
       class="col-lg-3 col-md-4 col-sm-6"
