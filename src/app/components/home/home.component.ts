@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Advert } from '../model/advert';
-import { AdvertHttpService } from '../services/advert-http.service';
-import { BrandHttpService } from '../services/brand-http.service';
-import { Brand } from '../model/brand';
+import { Advert } from '../../model/advert';
+import { AdvertHttpService } from '../../services/advert-http.service';
+import { BrandHttpService } from '../../services/brand-http.service';
+import { Brand } from '../../model/brand';
 import { NgForm } from '@angular/forms';
-import { Model } from '../model/model';
-import { ModelHttpService } from '../services/model-http.service';
+import { Model } from '../../model/model';
+import { ModelHttpService } from '../../services/model-http.service';
 import { map, catchError, tap } from 'rxjs/operators';
 
 @Component({
@@ -22,7 +22,9 @@ export class HomeComponent implements OnInit {
   AdvertList: Observable<Advert[]>;
   brands: Observable<Brand[]>;
   models: Observable<Model[]>;
-test: any;
+  currentPage = 1;
+  pageSize = 8;
+
 
   // Gestion du select Marque
   selectedBrand(brand: any): any{

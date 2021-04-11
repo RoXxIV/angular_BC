@@ -24,12 +24,12 @@ import { AdvertComponent } from './admin/adverts/advert/advert.component';
 import { AdvertListComponent } from './admin/adverts/advert-list/advert-list.component';
 import { AdvertDetailsComponent } from './admin/adverts/advert-details/advert-details.component';
 import { AddAdvertComponent } from './admin/adverts/add-advert/add-advert.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { ArticleComponent } from './article/article.component';
-import { FooterComponent } from './footer/footer.component';
-import { ArticleDetailsComponent } from './article-details/article-details.component';
-import { QuestionsComponent } from './questions/questions.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { ArticleComponent } from './components/article/article.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 
 const routes: Routes = [
@@ -83,8 +83,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     RouterModule.forRoot(routes)
