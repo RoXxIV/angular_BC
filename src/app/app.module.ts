@@ -30,6 +30,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { QuestionsComponent } from './components/questions/questions.component';
+import { AddUserComponent } from './admin/users/add-user/add-user.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path: 'models/:id', component: ModelDetailsComponent},
   {path: 'users', component: UserListComponent},
   {path: 'users/:id', component: UserDetailsComponent},
+  {path: 'users/add', component: AddUserComponent},
   {path: 'skateshops', component: SkateshopListComponent},
   {path: 'skateshops/:id', component: SkateshopDetailsComponent},
   {path: 'adverts', component: AdvertListComponent},
@@ -67,6 +69,7 @@ const routes: Routes = [
     UserComponent,
     UserDetailsComponent,
     UserListComponent,
+    AddUserComponent,
     SkateshopComponent,
     SkateshopListComponent,
     SkateshopDetailsComponent,
@@ -80,6 +83,7 @@ const routes: Routes = [
     FooterComponent,
     ArticleDetailsComponent,
     QuestionsComponent,
+
   ],
   imports: [
     BrowserModule,
