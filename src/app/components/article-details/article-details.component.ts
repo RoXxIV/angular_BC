@@ -11,6 +11,7 @@ import { AdvertHttpService } from '../../services/advert-http.service';
 export class ArticleDetailsComponent implements OnInit {
 
   articleDetail: Advert;
+
   constructor(private route: ActivatedRoute, private advertHttpService: AdvertHttpService) { }
 
   ngOnInit(): void {

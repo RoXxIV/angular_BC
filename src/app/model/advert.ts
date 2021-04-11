@@ -1,4 +1,5 @@
 export interface Advert {
+
   id: number;
   released_at: Date;
   description: string;
@@ -11,4 +12,5 @@ export interface Advert {
   brand: [];
   skateshop: [];
   price: number;
+
 }

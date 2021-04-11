@@ -67,7 +67,6 @@ export class HomeComponent implements OnInit {
     );
   }
 
-
   initAdverts(): void {
     return this.displayAdverts();
   }

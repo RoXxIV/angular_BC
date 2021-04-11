@@ -15,15 +15,6 @@ export class AddBrandComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private brandHttpService: BrandHttpService, private router: Router) { }
 
-
-  ngOnInit(): void {
-
-    this.brandForm = this.fb.group({
-      name: ['', Validators.required],
-    });
-
-  }
-
   submitForm(): void {
     this.submitted = true;
     if (this.brandForm.valid){
@@ -32,4 +23,9 @@ export class AddBrandComponent implements OnInit {
     }
   }
 
+  ngOnInit(): void {
+    this.brandForm = this.fb.group({
+      name: ['', Validators.required],
+    });
+  }
 }

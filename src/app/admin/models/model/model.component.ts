@@ -4,6 +4,7 @@ import { BrandHttpService } from '../../../services/brand-http.service';
 import { Brand } from '../../../model/brand';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[app-model]',
   templateUrl: './model.component.html',
   styleUrls: ['./model.component.scss']
