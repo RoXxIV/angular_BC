@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Advert } from '../model/advert';
+import { Advert } from '../../model/advert';
 
 @Component({
   selector: '[app-article]',

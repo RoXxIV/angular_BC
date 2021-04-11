@@ -92,14 +92,25 @@
     <!--boucle ici-->
     <div
       app-article
-      *ngFor="let a of AdvertList"
+      *ngFor="
+        let a of AdvertList
+          | slice: (currentPage - 1) * pageSize:currentPage * pageSize
+      "
       [advert]="a"
       id="card"
       class="col-lg-3 col-md-4 col-sm-6"
       style="font-size: 20px"
     ></div>
     <!--boucle ici-->
+    <ngb-pagination
+      [collectionSize]="40"
+      [pageSize]="pageSize"
+      [(page)]="currentPage"
+      size="lg"
+    ></ngb-pagination>
   </div>
 </section>
 
 <hr class="my-5" />
+
+<app-questions></app-questions>
