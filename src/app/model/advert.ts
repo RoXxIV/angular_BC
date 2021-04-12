@@ -12,5 +12,4 @@ export interface Advert {
   brand: [];
   skateshop: [];
   price: number;
-
 }

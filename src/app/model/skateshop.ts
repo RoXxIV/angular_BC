@@ -7,5 +7,4 @@ export interface Skateshop {
   city: string;
   phone: string;
   professional: string;
-
 }

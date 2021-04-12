@@ -15,6 +15,9 @@ export class SkateshopHttpService {
   findAll(): Observable<Skateshop[]> {
     return this.http.get<Skateshop[]>(this.url);
   }
+  add(skateshop: Skateshop): Observable<Skateshop>{
+    return this.http.post<Skateshop>(this.url, skateshop);
+  }
 
   findById(id: number): Observable<Skateshop> {
     return this.http.get<Skateshop>(`${this.url}/${id}`);
