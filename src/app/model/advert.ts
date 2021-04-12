@@ -1,4 +1,5 @@
 export interface Advert {
+
   id: number;
   released_at: Date;
   description: string;

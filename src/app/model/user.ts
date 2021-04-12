@@ -1,4 +1,5 @@
 export interface User {
+
   id: number;
   roles: [];
   username: string;
@@ -7,4 +8,5 @@ export interface User {
   firstName: string;
   siretNumber: string;
   phone: string;
+
 }

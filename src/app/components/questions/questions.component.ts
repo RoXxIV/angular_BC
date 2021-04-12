@@ -14,6 +14,7 @@ export class QuestionsComponent implements OnInit {
     el.style.opacity = 1;
 
     (function fade(): any {
+        // tslint:disable-next-line:no-conditional-assignment
         if ((el.style.opacity -= .1) < 0) {
         } else {
             requestAnimationFrame(fade);
@@ -26,6 +27,7 @@ export class QuestionsComponent implements OnInit {
     // .1 = 0.1
     (function fade(): void {
         let val = parseFloat(el.style.opacity);
+        // tslint:disable-next-line:no-conditional-assignment
         if (!((val += .1) > 1)) {
             el.style.opacity = val;
             requestAnimationFrame(fade);
@@ -54,7 +56,7 @@ export class QuestionsComponent implements OnInit {
 
     // #3 On retire la classe active sur l'element de contenu actif
     divContent.querySelector('.tab-content.active').classList.remove('active');
-    fadeOut(fade)
+    fadeOut(fade);
 
     // #4 On ajoute la classe active sur le contenu qui correspond au lien clické
     divContent.querySelector(a.getAttribute('href')).classList.add('active');

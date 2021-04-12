@@ -30,6 +30,8 @@ import { ArticleComponent } from './components/article/article.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { QuestionsComponent } from './components/questions/questions.component';
+import { AddUserComponent } from './admin/users/add-user/add-user.component';
+import { AddSkateshopComponent } from './admin/skateshops/add-skateshop/add-skateshop.component';
 
 
 const routes: Routes = [
@@ -41,8 +43,11 @@ const routes: Routes = [
   {path: 'models/add', component: AddModelComponent},
   {path: 'models/:id', component: ModelDetailsComponent},
   {path: 'users', component: UserListComponent},
+  {path: 'users/add', component: AddUserComponent},
   {path: 'users/:id', component: UserDetailsComponent},
+
   {path: 'skateshops', component: SkateshopListComponent},
+  {path: 'skateshops/add', component: AddSkateshopComponent},
   {path: 'skateshops/:id', component: SkateshopDetailsComponent},
   {path: 'adverts', component: AdvertListComponent},
   {path: 'adverts/add', component: AddAdvertComponent},
@@ -67,6 +72,7 @@ const routes: Routes = [
     UserComponent,
     UserDetailsComponent,
     UserListComponent,
+    AddUserComponent,
     SkateshopComponent,
     SkateshopListComponent,
     SkateshopDetailsComponent,
@@ -80,6 +86,8 @@ const routes: Routes = [
     FooterComponent,
     ArticleDetailsComponent,
     QuestionsComponent,
+    AddSkateshopComponent,
+
   ],
   imports: [
     BrowserModule,

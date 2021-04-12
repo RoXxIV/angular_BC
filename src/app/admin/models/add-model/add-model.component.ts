@@ -20,6 +20,14 @@ export class AddModelComponent implements OnInit {
   constructor(private fb: FormBuilder, private modelHttpService: ModelHttpService,
               private brandHttpService: BrandHttpService, private router: Router) { }
 
+  submitForm(): void {
+    this.submitted = true;
+    if (this.modelForm.valid){
+      this.modelHttpService.add(this.modelForm.value).subscribe(v => this.router.navigateByUrl('/models'));
+      window.location.reload();
+    }
+  }
+
   ngOnInit(): void {
     this.modelForm = this.fb.group({
       name: ['', Validators.required],
@@ -29,13 +37,4 @@ export class AddModelComponent implements OnInit {
     });
     this.brandHttpService.findAll().subscribe(m => this.brands = m['hydra:member']);
   }
-
-  submitForm(): void {
-    this.submitted = true;
-    if (this.modelForm.valid){
-      this.modelHttpService.add(this.modelForm.value).subscribe(v => this.router.navigateByUrl('/models'));
-      window.location.reload();
-    }
-  }
-
 }

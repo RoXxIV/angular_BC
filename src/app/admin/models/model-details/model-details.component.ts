@@ -13,6 +13,7 @@ import { Brand } from '../../../model/brand';
 export class ModelDetailsComponent implements OnInit {
 
   modelDetail: Model;
+
   constructor(private route: ActivatedRoute, private modelHttpService: ModelHttpService,
               private router: Router) { }
 

@@ -18,7 +18,6 @@ export class BrandDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     const id = this.route.snapshot.paramMap.get('id');
     this.brandHttpService.findById(Number(id)).subscribe(brand => this.brandDetails = brand);
   }
