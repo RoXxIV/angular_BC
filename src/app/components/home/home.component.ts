@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 import { Model } from '../../model/model';
 import { ModelHttpService } from '../../services/model-http.service';
 import { map, catchError, tap } from 'rxjs/operators';
+import { ApiplatformCollection } from '../../model/apiplatformCollection';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   models: Observable<Model[]>;
   currentPage = 1;
   pageSize = 8;
+  totalItems: ApiplatformCollection[];
 
 
   // Gestion du select Marque
@@ -81,5 +83,8 @@ export class HomeComponent implements OnInit {
     this.displayAdverts();
     // recupere la liste des marques
     this.displayBrands();
+
+    this.advertHttpService.findAll().subscribe(data => data["hydra:totalItems"]);
+    console.log(this.totalItems);
   }
 }
