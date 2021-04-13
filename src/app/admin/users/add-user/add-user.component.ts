@@ -21,7 +21,7 @@ export class AddUserComponent implements OnInit {
     if (this.userForm.valid){
       const advertObj = this.userForm.value;
       console.log(this.userForm.value);
-      this.userHttpService.add(this.userForm.value).subscribe(v => this.router.navigateByUrl('/users'));
+     // this.userHttpService.add(this.userForm.value).subscribe(v => this.router.navigateByUrl('/users'));
     }
   }
   ngOnInit(): void {
