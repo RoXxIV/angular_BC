@@ -21,8 +21,8 @@
   <div id="description" class="col-md-6">
     <div class="d-flex justify-content-center">
       <h2>
-        {{ articleDetail.model["brand"]["name"] }} -
-        {{ articleDetail.model["name"] }}
+        {{ articleDetail?.model["brand"]["name"] }} -
+        {{ articleDetail?.model["name"] }}
       </h2>
       <i class="far fa-heart text-5xl ml-5" role="button"></i>
     </div>
@@ -62,7 +62,7 @@
             </text>
             <text x="28.69">
               <tspan x="575" y="45">
-                <tspan>{{ articleDetail.length }}</tspan>
+                <tspan>{{ articleDetail?.length }}</tspan>
               </tspan>
             </text>
             <!--Largeur-->

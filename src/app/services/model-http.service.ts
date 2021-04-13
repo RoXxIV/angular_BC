@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ModelHttpService {
 
-  url = 'http://127.0.0.1:8000/api/models';
+  url = 'http://localhost:8000/api/models';
 
   constructor(private http: HttpClient) { }
 

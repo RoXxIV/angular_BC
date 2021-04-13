@@ -8,7 +8,7 @@ import { Advert } from '../model/advert';
 })
 export class AdvertHttpService {
 
-  url = 'http://127.0.0.1:8000/api/adverts';
+  url = 'http://localhost:8000/api/adverts';
 
 
   constructor(private http: HttpClient) { }

@@ -7,7 +7,7 @@ export interface Advert {
   length: string;
   shape: string;
   concave: string;
-  picturePath: string;
+  picturePath?: string;
   model: [];
   brand: [];
   skateshop: [];
