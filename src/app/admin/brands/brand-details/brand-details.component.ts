@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from '../../../model/brand';
 import { BrandHttpService } from '../../../services/brand-http.service';
@@ -10,16 +11,47 @@ import { BrandHttpService } from '../../../services/brand-http.service';
 })
 export class BrandDetailsComponent implements OnInit {
 
-  brandDetails: Brand;
+  currentBrand: Brand = {
+    id: 0,
+    name: ''
+  };
+
   constructor(private route: ActivatedRoute, private brandHttpService: BrandHttpService, private router: Router) { }
 
-  deleteBrand(): void{
-    this.brandHttpService.deleteOne(this.brandDetails.id).subscribe(v => this.router.navigateByUrl('/brands'));
+  getBrandDetails(id: number): void {
+    this.brandHttpService.findById(id)
+      .subscribe(
+        data => {
+          this.currentBrand = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
-
+  updateBrand(): void {
+    this.brandHttpService.update(this.currentBrand.id, this.currentBrand)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/brands']);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  deleteBrand(): void {
+    this.brandHttpService.deleteOne(this.currentBrand.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.router.navigate(['/brands']);
+        },
+        error => {
+          console.log(error);
+        });
+  }
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.brandHttpService.findById(Number(id)).subscribe(brand => this.brandDetails = brand);
+    this.getBrandDetails(this.route.snapshot.params.id);
   }
-
 }

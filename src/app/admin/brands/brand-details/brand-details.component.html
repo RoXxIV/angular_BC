@@ -1,33 +1,31 @@
 <section class="row">
   <div class="col-10 col-md-8 mx-auto">
-    <h2 class="my-4 text-center">Gestion des marques</h2>
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>ID</th>
-          <th>Marque</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ brandDetails?.id }}</td>
-          <td>{{ brandDetails?.name }}</td>
-          <td>
-            <ul class="d-flex">
-              <li>
-                <button class="btn btn-success mr-3">Editer</button>
-              </li>
-              <li>
-                <button (click)="deleteBrand()" class="btn btn-danger">
-                  Supprimer
-                </button>
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button routerLink="/brands" class="btn btn-primary">Retour</button>
+    <h2 class="my-5 text-center">Gestion des marques</h2>
+    <div *ngIf="!currentBrand.id" class="alert alert-primary" role="alert">
+      Aucun marque ne correspond a cet ID
+    </div>
+    <form *ngIf="currentBrand.id">
+      <div class="form-group">
+        <label class="mb-3" for="brand">Marque</label>
+        <input
+          type="text"
+          class="form-control"
+          id="brand"
+          [(ngModel)]="currentBrand.name"
+          name="brand"
+        />
+      </div>
+    </form>
+    <div>
+      <button class="btn btn-danger" (click)="deleteBrand()">Delete</button>
+      <button
+        type="submit"
+        class="btn btn-success mx-4"
+        (click)="updateBrand()"
+      >
+        Update
+      </button>
+      <button routerLink="/brands" class="btn btn-secondary">Retour</button>
+    </div>
   </div>
 </section>

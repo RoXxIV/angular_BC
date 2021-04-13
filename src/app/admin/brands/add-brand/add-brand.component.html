@@ -1,18 +1,22 @@
 <!--Gestion des erreurs-->
-<ul *ngIf="submitted">
-  <li *ngIf="brandForm.controls['name']?.errors?.required">
-    Le champs Marque est vide ou incorrect
-  </li>
-</ul>
-<form [formGroup]="brandForm" (ngSubmit)="submitForm()">
-  <div class="form-group">
-    <label for="formName">Marque:</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="name"
-      id="formName"
-    />
-  </div>
-  <button type="submit" class="btn btn-success my-2">Ajouter</button>
-</form>
+<div>
+  <ul *ngIf="submitted">
+    <li *ngIf="brandForm.controls['name']?.errors?.required">
+      <div class="alert alert-danger" role="alert">
+        Le champs Marque est vide ou incorrect
+      </div>
+    </li>
+  </ul>
+  <form [formGroup]="brandForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="formName">Marque :</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        id="formName"
+      />
+    </div>
+    <button type="submit" class="btn btn-success my-2">Ajouter</button>
+  </form>
+</div>
