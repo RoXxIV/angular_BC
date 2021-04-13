@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   models: Observable<Model[]>;
   currentPage = 1;
   pageSize = 8;
-  totalItems: ApiplatformCollection[];
+  totalItems: ApiplatformCollection;
 
 
   // Gestion du select Marque
@@ -84,7 +84,8 @@ export class HomeComponent implements OnInit {
     // recupere la liste des marques
     this.displayBrands();
 
-    this.advertHttpService.findAll().subscribe(data => data["hydra:totalItems"]);
+    //this.advertHttpService.findAll().subscribe(data => data["hydra:totalItems"]);
+    this.advertHttpService.findAll().subscribe(data => this.totalItems = data['hydra:totalItems'][0].length);
     console.log(this.totalItems);
   }
 }

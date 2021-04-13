@@ -12,7 +12,7 @@ import { BrandHttpService } from '../../../services/brand-http.service';
 export class BrandDetailsComponent implements OnInit {
 
   currentBrand: Brand = {
-    id: 0,
+    id: null,
     name: ''
   };
 

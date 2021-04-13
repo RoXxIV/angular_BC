@@ -32,6 +32,8 @@ import { ArticleDetailsComponent } from './components/article-details/article-de
 import { QuestionsComponent } from './components/questions/questions.component';
 import { AddUserComponent } from './admin/users/add-user/add-user.component';
 import { AddSkateshopComponent } from './admin/skateshops/add-skateshop/add-skateshop.component';
+import { LoginComponent } from './components/login/login.component';
+import { AccountPageComponent } from './components/account-page/account-page.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,9 @@ const routes: Routes = [
   {path: 'adverts/:id', component: AdvertDetailsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'article/:id', component: ArticleDetailsComponent},
+
+  {path: 'login', component: LoginComponent},
+
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
@@ -87,6 +92,8 @@ const routes: Routes = [
     ArticleDetailsComponent,
     QuestionsComponent,
     AddSkateshopComponent,
+    LoginComponent,
+    AccountPageComponent,
 
   ],
   imports: [
