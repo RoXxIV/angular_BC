@@ -8,7 +8,7 @@ import { Skateshop } from '../model/skateshop';
 })
 export class SkateshopHttpService {
 
-  url = 'http://127.0.0.1:8000/api/skateshops';
+  url = 'http://localhost:8000/api/skateshops';
 
   constructor(private http: HttpClient) { }
 
