@@ -12,12 +12,12 @@ export class TokenStorageService {
   constructor() { }
 
 
-saveToken(token: string): void {
+saveToken(token: string){
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-  saveUser(user: User): void {
+  saveUser(user: User){
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }

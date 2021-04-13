@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   formUser: any = {
     username: null,
-    password: null
+    password: 'LodevieP@ssw0rd2020'
   };
   isLoggedIn = false;
   isLoginFailed = false;
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveToken(data.token);
         this.authService.saveUser(data.token).subscribe(then =>
         {
+
           this.tokenStorage.saveUser(data);
         });
 
