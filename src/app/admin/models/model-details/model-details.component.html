@@ -1,35 +1,49 @@
 <section class="row">
   <div class="col-10 col-md-8 mx-auto">
-    <h2 class="my-4 text-center">Gestion des Modeles</h2>
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>ID</th>
-          <th>Modele</th>
-          <th>Marque</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ modelDetail?.id }}</td>
-          <td>{{ modelDetail?.name }}</td>
-          <td>{{ modelDetail?.brand["name"] }}</td>
-          <td>
-            <ul class="d-flex">
-              <li>
-                <button class="btn btn-success mr-3">Editer</button>
-              </li>
-              <li>
-                <button (click)="deleteModel()" class="btn btn-danger">
-                  Supprimer
-                </button>
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button routerLink="/models" class="btn btn-primary">Retour</button>
+    <h2 class="my-5 text-center">Gestion des Modeles</h2>
+    <div *ngIf="!currentModel.id" class="alert alert-primary" role="alert">
+      Aucun Modele ne correspond a cet ID
+    </div>
+    <form *ngIf="currentModel.id">
+      <div class="form-group">
+        <label class="mb-3" for="Model">Modele</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Model"
+          [(ngModel)]="currentModel.name"
+          name="Model"
+        />
+      </div>
+      <!--Non fonctionnel-->
+      <div class="form-group">
+        <label for="brand" class="mr-3">Marque</label>
+        <select
+          [(ngModel)]="currentModel.brand"
+          id="brand"
+          [ngModelOptions]="{ standalone: true }"
+        >
+          <option
+            [value]="b.name"
+            *ngFor="let b of brands"
+            class="form-control"
+            name="brand"
+          >
+            {{ b.name }} id : {{ b.id }}
+          </option>
+        </select>
+      </div>
+    </form>
+    <div>
+      <button class="btn btn-danger" (click)="deleteModel()">Delete</button>
+      <button
+        type="submit"
+        class="btn btn-success mx-4"
+        (click)="updateModel()"
+      >
+        Update
+      </button>
+      <button routerLink="/models" class="btn btn-secondary">Retour</button>
+    </div>
   </div>
 </section>

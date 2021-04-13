@@ -20,6 +20,10 @@ export class ModelHttpService {
     return this.http.post<Model>(this.url, model);
   }
 
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, data);
+  }
+
   findById(id: number): Observable<Model> {
     return this.http.get<Model>(`${this.url}/${id}`);
   }
