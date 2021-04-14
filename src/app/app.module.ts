@@ -56,6 +56,7 @@ const routes: Routes = [
   {path: 'adverts/:id', component: AdvertDetailsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'article/:id', component: ArticleDetailsComponent},
+  {path: 'profil', component: AccountPageComponent},
 
   {path: 'login', component: LoginComponent},
 
