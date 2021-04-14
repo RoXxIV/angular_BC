@@ -13,13 +13,20 @@ export class AddBrandComponent implements OnInit {
   brandForm: FormGroup;
   submitted = false;
 
-  constructor(private fb: FormBuilder, private brandHttpService: BrandHttpService, private router: Router) { }
+
+
+  constructor(private fb: FormBuilder, private brandHttpService: BrandHttpService) { }
 
   submitForm(): void {
     this.submitted = true;
     if (this.brandForm.valid){
-      this.brandHttpService.add(this.brandForm.value).subscribe(v => this.router.navigateByUrl('/brands'));
-      window.location.reload();
+      this.brandHttpService.add(this.brandForm.value).subscribe(
+          () => {
+        window.location.reload();
+      },
+      error => {
+        console.log(error);
+      });
     }
   }
 

@@ -5,11 +5,11 @@
       Aucun marque ne correspond a cet ID
     </div>
     <form *ngIf="currentBrand.id">
-      <div class="form-group">
+      <div class="form-group my-5">
         <label class="mb-3" for="brand">Marque</label>
         <input
           type="text"
-          class="form-control"
+          class="form-control css-input"
           id="brand"
           [(ngModel)]="currentBrand.name"
           name="brand"
@@ -17,13 +17,13 @@
       </div>
     </form>
     <div>
-      <button class="btn btn-danger" (click)="deleteBrand()">Delete</button>
+      <button class="btn btn-danger" (click)="deleteBrand()">Supprimer</button>
       <button
         type="submit"
         class="btn btn-success mx-4"
         (click)="updateBrand()"
       >
-        Update
+        Editer
       </button>
       <button routerLink="/brands" class="btn btn-secondary">Retour</button>
     </div>
