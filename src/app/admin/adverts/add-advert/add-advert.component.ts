@@ -38,12 +38,12 @@ export class AddAdvertComponent implements OnInit {
   }
   ngOnInit(): void {
     this.advertForm = this.fb.group({
-      description: ['une description', Validators.required],
+      description: ['', Validators.required],
       width: ['', Validators.required],
-      length: ['39.9', Validators.required],
+      length: ['', Validators.required],
       shape: ['', Validators.required],
       concave: ['', Validators.required],
-      picturePath: ['unephoto.jgp', Validators.required],
+      picturePath: ['img/planches/', Validators.required],
       price: [],
       model: this.fb.group({
         id: 1

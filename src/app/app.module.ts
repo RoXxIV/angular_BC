@@ -36,10 +36,11 @@ import { LoginComponent } from './components/login/login.component';
 import { AccountPageComponent } from './components/account-page/account-page.component';
 import { AuthGuardService } from './guards/auth.guard';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { AuthAdminGuardService } from './guards/authAdmin.guard';
 
 
 const routes: Routes = [
-  {path: 'admin', component: AdminHomeComponent},
+  {path: 'admin', component: AdminHomeComponent, canActivate: [AuthAdminGuardService]},
   {path: 'brands', component: BrandListComponent},
   {path: 'brands/add', component: AddBrandComponent},
   {path: 'brands/:id', component: BrandDetailsComponent},
@@ -62,7 +63,7 @@ const routes: Routes = [
 
   {path: 'login', component: LoginComponent},
 
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '**', redirectTo: 'home', pathMatch: 'full'},
 ];
 export function getToken() {
   return localStorage.getItem('auth-token');
@@ -114,6 +115,7 @@ export function getToken() {
   ],
   providers: [
     AuthGuardService,
+    AuthAdminGuardService
   ],
   bootstrap: [AppComponent]
 })

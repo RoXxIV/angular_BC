@@ -24,7 +24,9 @@ export class TokenStorageService {
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
+      console.log('ici', user);
       return JSON.parse(user);
+
     }
 
     return {};
