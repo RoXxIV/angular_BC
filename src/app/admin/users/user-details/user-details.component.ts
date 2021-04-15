@@ -16,11 +16,19 @@ export class UserDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userHttpService: UserHttpService, private router: Router) { }
 
   deleteModel(): void{
-    this.userHttpService.deleteOne(this.userDetail.id).subscribe(v => this.router.navigateByUrl('/users'));
+    this.userHttpService.deleteOne(this.userDetail.id).subscribe(
+      v => this.router.navigateByUrl('/users'),
+      error => {
+          console.log(error);
+        });
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.userHttpService.findById(Number(id)).subscribe(model => this.userDetail = model);
+    this.userHttpService.findById(Number(id)).subscribe(
+      model => this.userDetail = model,
+      error => {
+          console.log(error);
+        });
   }
 }
