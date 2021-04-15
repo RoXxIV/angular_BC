@@ -14,11 +14,19 @@ export class AdvertDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private advertHttpService: AdvertHttpService, private router: Router) { }
 
   deleteAdvert(): void{
-    this.advertHttpService.deleteOne(this.advertDetail.id).subscribe(v => this.router.navigateByUrl('/adverts'));
+    this.advertHttpService.deleteOne(this.advertDetail.id).subscribe(
+      v => this.router.navigateByUrl('/adverts'),
+      error => {
+        console.log(error);
+      });
   }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.advertHttpService.findById(Number(id)).subscribe(advert => this.advertDetail = advert);
+    this.advertHttpService.findById(Number(id)).subscribe(
+      advert => this.advertDetail = advert,
+      error => {
+        console.log(error);
+      });
   }
 
 }

@@ -13,12 +13,10 @@ export class ModelComponent implements OnInit {
 
   @Input() model: Model;
 
-
   constructor() { }
 
   ngOnInit(): void {
 
-    console.log(this.model);
   }
 
 }

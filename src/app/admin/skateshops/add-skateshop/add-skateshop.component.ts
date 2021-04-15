@@ -19,12 +19,14 @@ export class AddSkateshopComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private skateshopHttpService: SkateshopHttpService, private userHttpService: UserHttpService,
               private router: Router) { }
-
     submitForm(): void {
     this.submitted = true;
     if (this.skateshopForm.valid){
-      console.log(this.skateshopForm.value);
-      this.skateshopHttpService.add(this.skateshopForm.value).subscribe(v => this.router.navigateByUrl('/skateshops'), err => console.log(err));
+      this.skateshopHttpService.add(this.skateshopForm.value)
+      .subscribe(
+        v => this.router.navigateByUrl('/skateshops'),
+         err => console.log(err)
+         );
     }
   }
   ngOnInit(): void {
@@ -39,7 +41,12 @@ export class AddSkateshopComponent implements OnInit {
         {id: 1}
       )
     });
-    this.userHttpService.findAll().subscribe(m => this.professionals = m['hydra:member']);
+
+    this.userHttpService.findAll().subscribe(
+      m => this.professionals = m['hydra:member'],
+      error => {
+          console.log(error);
+        });
   }
 
 }

@@ -15,9 +15,12 @@ export class BrandListComponent implements OnInit {
   brandList: Observable<Brand[]>;
 
   constructor(private brandHttpService: BrandHttpService) { }
-
   ngOnInit(): void {
-    this.brandHttpService.findAll().subscribe(m => this.brandList = m['hydra:member']);
+    this.brandHttpService.findAll().subscribe(
+      m => this.brandList = m['hydra:member'],
+      error => {
+        console.log(error);
+      });
   }
 
 }

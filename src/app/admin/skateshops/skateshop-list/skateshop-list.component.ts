@@ -11,10 +11,15 @@ import { SkateshopHttpService } from '../../../services/skateshop-http.service';
 export class SkateshopListComponent implements OnInit {
 
   skateshopList: Observable<Skateshop[]>;
+
   constructor(private skateshopHttpService: SkateshopHttpService) { }
 
   ngOnInit(): void {
-    this.skateshopHttpService.findAll().subscribe(m => this.skateshopList = m['hydra:member']);
+    this.skateshopHttpService.findAll().subscribe(
+      m => this.skateshopList = m['hydra:member'],
+      error => {
+          console.log(error);
+        });
   }
 
 }

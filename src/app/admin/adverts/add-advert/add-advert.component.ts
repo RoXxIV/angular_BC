@@ -27,13 +27,33 @@ export class AddAdvertComponent implements OnInit {
         private modelHttpService: ModelHttpService, private skateshopHttpService: SkateshopHttpService,
         private router: Router
         ){}
+
+  getModel(): void{
+    this.modelHttpService.findAll().subscribe(
+      m => this.models = m['hydra:member'],
+      error => {
+        console.log(error);
+      });
+  }
+  getSkateshop(): void{
+    this.skateshopHttpService.findAll().subscribe(
+      m => this.skateshops = m['hydra:member'],
+      error => {
+        console.log(error);
+      });
+  }
   submitForm(): void {
     this.submitted = true;
     if (this.advertForm.valid){
       const advertObj = this.advertForm.value;
       console.log(this.advertForm.value);
       advertObj.price = advertObj.price * 100;
-      this.advertHttpService.add(this.advertForm.value).subscribe(v => this.router.navigateByUrl('/adverts'));
+      this.advertHttpService.add(this.advertForm.value)
+      .subscribe(
+        v => this.router.navigateByUrl('/adverts'),
+        error => {
+        console.log(error);
+      });
     }
   }
   ngOnInit(): void {
@@ -52,7 +72,7 @@ export class AddAdvertComponent implements OnInit {
         id: 1
       })
     });
-    this.modelHttpService.findAll().subscribe(m => this.models = m['hydra:member']);
-    this.skateshopHttpService.findAll().subscribe(m => this.skateshops = m['hydra:member']);
+    this.getModel();
+    this.getSkateshop();
   }
 }

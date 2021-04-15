@@ -11,14 +11,23 @@ import { SkateshopHttpService } from '../../../services/skateshop-http.service';
 export class SkateshopDetailsComponent implements OnInit {
 
   skateshopDetails: Skateshop;
+
   constructor(private route: ActivatedRoute, private skateshopHttpService: SkateshopHttpService, private router: Router) { }
 
   deleteSkateshop(): void{
-    this.skateshopHttpService.deleteOne(this.skateshopDetails.id).subscribe(v => this.router.navigateByUrl('/skateshops'));
+    this.skateshopHttpService.deleteOne(this.skateshopDetails.id).subscribe(
+      v => this.router.navigateByUrl('/skateshops'),
+      error => {
+          console.log(error);
+        });
   }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.skateshopHttpService.findById(Number(id)).subscribe(skateshop => this.skateshopDetails = skateshop);
+    this.skateshopHttpService.findById(Number(id)).subscribe(
+      skateshop => this.skateshopDetails = skateshop,
+      error => {
+          console.log(error);
+        });
   }
 
 }

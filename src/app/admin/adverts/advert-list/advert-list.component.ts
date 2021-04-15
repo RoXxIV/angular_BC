@@ -12,11 +12,13 @@ export class AdvertListComponent implements OnInit {
 
   advertList: Observable<Advert[]>;
 
-
   constructor(private advertHttpService: AdvertHttpService) { }
-
   ngOnInit(): void {
-    this.advertHttpService.findAll().subscribe(m => this.advertList = m['hydra:member']);
+    this.advertHttpService.findAll().subscribe(
+      m => this.advertList = m['hydra:member'],
+      error => {
+        console.log(error);
+      });
   }
 
 }
