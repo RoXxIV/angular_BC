@@ -17,9 +17,6 @@ import { ApiplatformCollection } from '../../model/apiplatformCollection';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private advertHttpService: AdvertHttpService, private brandHttpService: BrandHttpService,
-              private modelHttpService: ModelHttpService) { }
-
   AdvertList: Observable<Advert[]>;
   brands: Observable<Brand[]>;
   models: Observable<Model[]>;
@@ -27,23 +24,27 @@ export class HomeComponent implements OnInit {
   pageSize = 8;
   totalItems: ApiplatformCollection;
 
-
+  constructor(private advertHttpService: AdvertHttpService, private brandHttpService: BrandHttpService,
+              private modelHttpService: ModelHttpService) { }
   // Gestion du select Marque
   selectedBrand(brand: any): any{
 
-    console.log('curent state is ' + brand);
-
     this.advertHttpService.findAll().subscribe(
       m => this.AdvertList = m['hydra:member']
-      .filter(p => p.model['brand']['name'] === brand)
+      .filter(p => p.model['brand']['name'] === brand),
+      error => {
+          console.log(error);
+        }
     );
     // gestion des modeles en fonction de la marque choisis
     this.modelHttpService.findAll().subscribe
     (
       m => this.models = m['hydra:member']
       .filter(
-      item => item.brand.name === brand
-      )
+      item => item.brand.name === brand),
+      error => {
+          console.log(error);
+        }
     );
   }
   // Gestion du select Marque
@@ -53,39 +54,46 @@ export class HomeComponent implements OnInit {
 
     this.advertHttpService.findAll().subscribe(
       m => this.AdvertList = m['hydra:member'].
-      filter(p => p.model['name'] === model)
+      filter(p => p.model['name'] === model),
+      error => {
+          console.log(error);
+        }
     );
   }
 
   // Gestion du select Marque
   selectedWidth(width: any): void{
-
-    console.log('curent state is ' + width);
-
     this.advertHttpService.findAll().subscribe
     (
       m => this.AdvertList = m['hydra:member'].
-      filter(p => p.width === width)
+      filter(p => p.width === width),
+      error => {
+          console.log(error);
+        }
     );
   }
-
+  // suppression des filtres de recherche
   initAdverts(): void {
     return this.displayAdverts();
   }
   displayAdverts(): any{
-  return this.advertHttpService.findAll().subscribe(m => this.AdvertList = m['hydra:member']);
+  return this.advertHttpService.findAll().subscribe(
+    m => this.AdvertList = m['hydra:member'],
+    error => {
+            console.log(error);
+          });
   }
   displayBrands(): any{
-  return this.brandHttpService.findAll().subscribe(m => this.brands = m['hydra:member']);
+  return this.brandHttpService.findAll().subscribe(
+    m => this.brands = m['hydra:member'],
+    error => {
+          console.log(error);
+        });
   }
   ngOnInit(): void {
     // recupere la liste d'article
     this.displayAdverts();
     // recupere la liste des marques
     this.displayBrands();
-
-    //this.advertHttpService.findAll().subscribe(data => data["hydra:totalItems"]);
-    //this.advertHttpService.findAll().subscribe(data => this.totalItems = data['hydra:totalItems'][0].length);
-    //console.log(this.totalItems);
   }
 }

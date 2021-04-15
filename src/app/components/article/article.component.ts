@@ -9,11 +9,11 @@ import { Advert } from '../../model/advert';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor() { }
-
   @Input() advert: Advert;
 
+  constructor() { }
+
   ngOnInit(): void {
-    console.log(this.advert);
+
   }
 }
