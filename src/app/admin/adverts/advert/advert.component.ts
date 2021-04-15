@@ -14,6 +14,5 @@ export class AdvertComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.advert);
   }
 }
