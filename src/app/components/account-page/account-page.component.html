@@ -1,1 +1,12 @@
-
+<button (click)="(logout)">Deconection</button>
+<ul>
+  <li>id : {{ currentUser.id }}</li>
+  <li>username :{{ currentUser.username }}</li>
+  <li>email : {{ currentUser.email }}</li>
+  <li>nom: {{ currentUser.lastName }}</li>
+  <li>prenom : {{ currentUser.firstName }}</li>
+  <li>telephone : {{ currentUser.phone }}</li>
+  <li>numero de siret : {{ currentUser.siretNumber }}</li>
+  <li>role : {{ currentUser.roles }}</li>
+  <li>password 😎 {{ currentUser.password }}</li>
+</ul>

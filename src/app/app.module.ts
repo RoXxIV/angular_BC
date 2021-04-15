@@ -34,6 +34,8 @@ import { AddUserComponent } from './admin/users/add-user/add-user.component';
 import { AddSkateshopComponent } from './admin/skateshops/add-skateshop/add-skateshop.component';
 import { LoginComponent } from './components/login/login.component';
 import { AccountPageComponent } from './components/account-page/account-page.component';
+import { AuthGuardService } from './guards/auth.guard';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 
 const routes: Routes = [
@@ -56,13 +58,15 @@ const routes: Routes = [
   {path: 'adverts/:id', component: AdvertDetailsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'article/:id', component: ArticleDetailsComponent},
-  {path: 'profil', component: AccountPageComponent},
+  {path: 'profil', component: AccountPageComponent, canActivate: [AuthGuardService]},
 
   {path: 'login', component: LoginComponent},
 
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
-
+export function getToken() {
+  return localStorage.getItem('auth-token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,9 +107,14 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    JwtModule.forRoot( {config: {
+        tokenGetter: getToken
+      }}),
   ],
-  providers: [],
+  providers: [
+    AuthGuardService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
