@@ -36,7 +36,6 @@ export class AddUserComponent implements OnInit {
       siretNumber: ['1236547896', Validators.required],
       phone: ['0752568545', Validators.required],
     });
-
   }
 
 }

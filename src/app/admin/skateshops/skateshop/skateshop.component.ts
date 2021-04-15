@@ -13,7 +13,6 @@ export class SkateshopComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.skateshop);
   }
 
 }
