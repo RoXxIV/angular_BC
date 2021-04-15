@@ -15,7 +15,7 @@ export class AuthAdminGuardService implements CanActivate {
       if (AdminCheck.roles == 'ROLES_ADMIN'){
         return true;
       }else{
-          this.router.navigate(['home']);
+          this.router.navigateByUrl('/home');
           console.log(user);
           return false;
       }
