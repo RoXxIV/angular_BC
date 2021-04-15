@@ -24,9 +24,6 @@ export class AddModelComponent implements OnInit {
     this.submitted = true;
     if (this.modelForm.valid){
       this.modelHttpService.add(this.modelForm.value).subscribe(
-        () => {
-          window.location.reload();
-        },
         error => {
           console.log(error);
         });

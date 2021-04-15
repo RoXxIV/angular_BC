@@ -13,9 +13,12 @@ export class ModelListComponent implements OnInit {
   modelList: Observable<Model[]>;
 
   constructor(private modelHttpService: ModelHttpService) { }
-
   ngOnInit(): void {
-    this.modelHttpService.findAll().subscribe(m => this.modelList = m['hydra:member']);
+    this.modelHttpService.findAll().subscribe(
+      m => this.modelList = m['hydra:member'],
+      error => {
+          console.log(error);
+        });
   }
 
 }

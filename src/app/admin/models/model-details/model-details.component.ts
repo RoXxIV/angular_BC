@@ -27,10 +27,6 @@ export class ModelDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private modelHttpService: ModelHttpService,
               private router: Router, private brandHttpService: BrandHttpService) { }
 
-  /*deleteModel(): void{
-    this.modelHttpService.deleteOne(this.modelDetail.id).subscribe(v => this.router.navigateByUrl('/models'));
-  }*/
-
   getModelDetails(id: number): void {
     this.modelHttpService.findById(id)
       .subscribe(
@@ -43,7 +39,6 @@ export class ModelDetailsComponent implements OnInit {
           console.log(error);
         });
   }
-
   updateModel(): void {
     this.modelHttpService.update(this.currentModel.id, this.currentModel)
       .subscribe(
@@ -55,7 +50,6 @@ export class ModelDetailsComponent implements OnInit {
           console.log(error);
         });
   }
-
   deleteModel(): void {
     this.modelHttpService.deleteOne(this.currentModel.id)
       .subscribe(
@@ -75,5 +69,4 @@ export class ModelDetailsComponent implements OnInit {
    this.getModelDetails(this.route.snapshot.params.id);
    this.brandHttpService.findAll().subscribe(m => this.brands = m['hydra:member']);
   }
-
 }
