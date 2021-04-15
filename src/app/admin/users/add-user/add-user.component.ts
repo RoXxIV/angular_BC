@@ -19,16 +19,17 @@ export class AddUserComponent implements OnInit {
     submitForm(): void {
     this.submitted = true;
     if (this.userForm.valid){
-      const advertObj = this.userForm.value;
       console.log(this.userForm.value);
-     // this.userHttpService.add(this.userForm.value).subscribe(v => this.router.navigateByUrl('/users'));
+      this.userHttpService.add(this.userForm.value).subscribe(
+        v => this.router.navigateByUrl('/users'),
+         err => console.log(err));
     }
   }
   ngOnInit(): void {
 
     this.userForm = this.fb.group({
       username: ['username', Validators.required],
-      plainPassword: ['azerty', Validators.required],
+      password: ['azerty', Validators.required],
       email: ['even@gmail.com', Validators.required],
       lastName: ['lennon', Validators.required],
       firstName: ['bob', Validators.required],

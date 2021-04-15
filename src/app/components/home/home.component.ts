@@ -85,7 +85,7 @@ export class HomeComponent implements OnInit {
     this.displayBrands();
 
     //this.advertHttpService.findAll().subscribe(data => data["hydra:totalItems"]);
-    this.advertHttpService.findAll().subscribe(data => this.totalItems = data['hydra:totalItems'][0].length);
-    console.log(this.totalItems);
+    //this.advertHttpService.findAll().subscribe(data => this.totalItems = data['hydra:totalItems'][0].length);
+    //console.log(this.totalItems);
   }
 }

@@ -9,11 +9,16 @@ import { User } from '../model/user';
 export class UserHttpService {
 
   url = 'http://localhost:8000/api/users';
+  urlAdd = 'http://localhost:8000/register';
 
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<User[]> {
     return this.http.get<User[]>(this.url);
+  }
+
+  add(user: User): Observable<User>{
+    return this.http.post<User>(this.urlAdd, user);
   }
 
   findById(id: number): Observable<User> {

@@ -23,9 +23,8 @@ export class AddSkateshopComponent implements OnInit {
     submitForm(): void {
     this.submitted = true;
     if (this.skateshopForm.valid){
-      const advertObj = this.skateshopForm.value;
       console.log(this.skateshopForm.value);
-      //this.skateshopHttpService.add(this.skateshopForm.value).subscribe(v => this.router.navigateByUrl('/skateshops'));
+      this.skateshopHttpService.add(this.skateshopForm.value).subscribe(v => this.router.navigateByUrl('/skateshops'), err => console.log(err));
     }
   }
   ngOnInit(): void {

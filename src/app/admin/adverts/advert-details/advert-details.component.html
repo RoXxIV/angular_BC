@@ -22,39 +22,38 @@
           <td>{{ advertDetail?.model["name"] }}</td>
           <td>{{ advertDetail?.price / 100 }}</td>
           <td>
-            <ul class="d-flex">
-              <li>
-                <button class="btn btn-success mr-3">Editer</button>
-              </li>
-              <li>
-                <button (click)="deleteAdvert()" class="btn btn-danger">
-                  Supprimer
-                </button>
-              </li>
-            </ul>
+            <button (click)="deleteAdvert()" class="btn btn-danger">
+              Supprimer
+            </button>
           </td>
         </tr>
       </tbody>
     </table>
-    <div>
+    <div class="text-center my-5">
       <img src="assets/{{ advertDetail?.picturePath }}" alt="" />
     </div>
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <th>Description</th>
-        <th>Longueur</th>
-        <th>Largeur</th>
-        <th>Shape</th>
-        <th>Concave</th>
-      </thead>
-      <tbody>
-        <td>{{ advertDetail?.description }}</td>
-        <td>{{ advertDetail?.length }}</td>
-        <td>{{ advertDetail?.width }}</td>
-        <td>{{ advertDetail?.shape }}</td>
-        <td>{{ advertDetail?.concave }}</td>
-      </tbody>
-    </table>
+    <ul>
+      <li>
+        <h3>Description</h3>
+        {{ advertDetail?.description }}
+      </li>
+      <li>
+        <h3>Length</h3>
+        {{ advertDetail?.length }}
+      </li>
+      <li>
+        <h3>Width</h3>
+        {{ advertDetail?.width }}
+      </li>
+      <li>
+        <h3>Shape</h3>
+        {{ advertDetail?.shape }}
+      </li>
+      <li>
+        <h3>Concave</h3>
+        {{ advertDetail?.concave }}
+      </li>
+    </ul>
     <button routerLink="/adverts" class="btn btn-primary">Retour</button>
   </div>
 </section>
