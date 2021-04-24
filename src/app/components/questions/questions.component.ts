@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class QuestionsComponent implements OnInit {
 
   constructor() { }
+   active = 'top';
 
   ngOnInit(): void {
     function fadeOut(el: any): void {

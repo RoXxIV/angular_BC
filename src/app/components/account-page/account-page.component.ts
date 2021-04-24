@@ -17,6 +17,7 @@ export class AccountPageComponent implements OnInit {
   currentUser: User;
   skateshopList: Observable<Skateshop[]>;
   advertList: Observable<Advert[]>;
+  active = 1;
 
   constructor(private token: TokenStorageService, private skateshopHttpService: SkateshopHttpService,
               private advertHttpService: AdvertHttpService) { }

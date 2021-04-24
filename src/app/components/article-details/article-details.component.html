@@ -109,9 +109,41 @@
           <!--price-->
         </li>
       </ul>
-      <button class="btn rounded">Je Reserve</button>
+      <button (click)="open(content)" class="btn rounded">Je Reserve</button>
     </div>
   </div>
 </section>
 
 <hr class="my-5" />
+
+<!--Modal-->
+<ng-template #content let-modal>
+  <div class="modal-header text-center">
+    <h3>
+      {{ articleDetail?.model["brand"]["name"] }} -
+      {{ articleDetail?.model["name"] }}
+    </h3>
+  </div>
+  <div class="modal-body">
+    <h3 class="mb-4">Pour reserver cet article:</h3>
+    <ul>
+      <li>
+        <h4>Par Téléphone: <sup>8h/12-14h/17h</sup></h4>
+      </li>
+      <li class="mb-3">0474587456</li>
+
+      <li><h4>Par Mail:</h4></li>
+      <li>Lodevie@gmail.com</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</ng-template>

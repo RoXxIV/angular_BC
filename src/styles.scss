@@ -82,5 +82,36 @@ footer,
   transform: scale(0.95);
 }
 
+.cta {
+  position: relative;
+  margin: auto;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: 13%;
+  display: block;
+  background-color: var(--bleu);
+  width: 0px;
+  height: 1.5px;
+  transition: all 0.3s ease;
+}
+
+.cta span {
+  position: relative;
+
+  line-height: 18px;
+
+  vertical-align: middle;
+}
+
+.cta:hover::before {
+  width: 75%;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

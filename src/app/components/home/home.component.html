@@ -12,6 +12,7 @@
           #SelectBrand
           (change)="selectedBrand(SelectBrand.value)"
         >
+          <option selected>Marque</option>
           <option [value]="b.name" *ngFor="let b of brands">
             {{ b.name }}
           </option>
@@ -24,6 +25,7 @@
           #SelectModel
           (change)="selectedModel(SelectModel.value)"
         >
+          <option selected>Modele</option>
           <option [value]="m.name" *ngFor="let m of models">
             {{ m.name }}
           </option>
@@ -51,7 +53,12 @@
       </div>
       <!--concave liste-->
       <div id="blocConcave" class="col-6 col-sm-4 col-md-3">
-        <select class="form-select">
+        <select
+          class="form-select"
+          #SelectConcave
+          (change)="selectedConcave(SelectConcave.value)"
+          class="form-select"
+        >
           <option selected>Concave</option>
           <option value="Leger">Leger</option>
           <option value="Moyen">Moyen</option>
@@ -60,7 +67,13 @@
       </div>
       <!--shape liste-->
       <div id="blocShape" class="col-6 col-sm-4 col-md-3">
-        <select class="form-select">
+        <select
+          class="form-select"
+          #SelectShape
+          (change)="selectedShape(SelectShape.value)"
+          class="form-select"
+          class="form-select"
+        >
           <option selected>Shape</option>
           <option value="Strandard">Strandard</option>
           <option value="Shaped">Shaped</option>
@@ -75,13 +88,11 @@
           <option value="prixDesc">par ordre decroissant</option>
         </select>
       </div>
-      <div id="cancel" class="col-6 col-sm-4 col-md-3">
-        <button class="btn" (click)="initAdverts()">
-          Supprimer les filtres
-        </button>
-      </div>
     </div>
   </form>
+  <div *ngIf="filterisActivated" class="my-5">
+    <i (click)="initAdverts()" class="fas fa-times deleteFilter"></i>
+  </div>
 </section>
 
 <!--ANNONCES------------>
@@ -106,7 +117,7 @@
   <div class="row">
     <div class="col-10 col-md-6 mx-auto">
       <ngb-pagination
-        [collectionSize]="40"
+        [collectionSize]="20"
         [pageSize]="pageSize"
         [(page)]="currentPage"
         size="lg"

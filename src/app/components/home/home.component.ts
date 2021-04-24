@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   currentPage = 1;
   pageSize = 8;
   totalItems: ApiplatformCollection;
+  filterisActivated = false;
 
   constructor(private advertHttpService: AdvertHttpService, private brandHttpService: BrandHttpService,
               private modelHttpService: ModelHttpService) { }
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit {
           console.log(error);
         }
     );
+    this.filterisActivated = true;
   }
   // Gestion du select Marque
   selectedModel(model: any): any{
@@ -59,9 +61,10 @@ export class HomeComponent implements OnInit {
           console.log(error);
         }
     );
+    this.filterisActivated = true;
   }
 
-  // Gestion du select Marque
+  // Gestion du select Width
   selectedWidth(width: any): void{
     this.advertHttpService.findAll().subscribe
     (
@@ -71,9 +74,37 @@ export class HomeComponent implements OnInit {
           console.log(error);
         }
     );
+    this.filterisActivated = true;
+  }
+
+  // Gestion du select Width
+  selectedConcave(concave: any): void{
+    this.advertHttpService.findAll().subscribe
+    (
+      m => this.AdvertList = m['hydra:member'].
+      filter(p => p.concave === concave),
+      error => {
+          console.log(error);
+        }
+    );
+    this.filterisActivated = true;
+  }
+
+  // Gestion du select Width
+  selectedShape(shape: any): void{
+    this.advertHttpService.findAll().subscribe
+    (
+      m => this.AdvertList = m['hydra:member'].
+      filter(p => p.shape === shape),
+      error => {
+          console.log(error);
+        }
+    );
+    this.filterisActivated = true;
   }
   // suppression des filtres de recherche
   initAdverts(): void {
+    this.filterisActivated = true;
     return this.displayAdverts();
   }
   displayAdverts(): any{

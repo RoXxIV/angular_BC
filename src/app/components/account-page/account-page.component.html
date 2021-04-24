@@ -1,98 +1,107 @@
 <!--Banniere-->
-<div class="d-flex justify-content-center my-5">
-  <img class="img-fluid" src="../../../assets/img/account.jpg" alt="" />
-</div>
-
-<a href="index.php" class="cta">
-  <span><i class="fas fa-arrow-left"></i> Retour a l'accueil</span>
-</a>
 
 <section id="info-perso">
-  <div class="row text-center my-5">
-    <div class="col-10 col-md-6 mx-auto">
-      <h2 class="mt-4 mb-3">Mes Boutiques</h2>
-      <table class="table table table-striped my-3">
-        <thead class="thead-dark">
-          <tr>
-            <th>#</th>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Dirigeant</th>
-            <th>Telephone</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            app-skateshop
-            *ngFor="let s of skateshopList; let i = index"
-            [skateshop]="s"
-          >
-            {{
-              i
-            }}
-          </tr>
-        </tbody>
-      </table>
-      <hr class="my-5" />
-      <h2 class="mt-4 mb-3">Mes Annonces</h2>
-      <table class="table table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th>#</th>
-            <th>ID</th>
-            <th>Crée le</th>
-            <th>Posté par</th>
-            <th>Modeles</th>
-            <th>Prix</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            app-advert
-            *ngFor="let a of advertList; let i = index"
-            [advert]="a"
-          >
-            {{
-              i
-            }}
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="col-10 col-md-3">
-      <h1>Mes Infos</h1>
-      <ul>
-        <li>
-          <h3>Pseudo</h3>
-          {{ currentUser.username }}
+  <div class="d-flex justify-content-center my-5">
+    <img class="img-fluid" src="../../../assets/img/account.jpg" alt="" />
+  </div>
+  <a href="index.php" class="cta">
+    <span><i class="fas fa-arrow-left"></i> Retour a l'accueil</span>
+  </a>
+  <div class="row my-5">
+    <div class="col-10 col-md-10 mx-auto text-center">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Mes Infos</a>
+          <ng-template ngbNavContent>
+            <ul>
+              <li>
+                <h3>Pseudo</h3>
+                {{ currentUser.username }}
+              </li>
+              <li>
+                <h3>Email</h3>
+                {{ currentUser.email }}
+              </li>
+              <li>
+                <h3>Nom</h3>
+                {{ currentUser.lastName }}
+              </li>
+              <li>
+                <h3>Prenom</h3>
+                {{ currentUser.firstName }}
+              </li>
+              <li>
+                <h3>Téléphone</h3>
+                {{ currentUser.phone }}
+              </li>
+              <li>
+                <h3>Numero de siret</h3>
+                {{ currentUser.siretNumber }}
+              </li>
+              <li><button class="btn btn-success">Editer</button></li>
+            </ul>
+          </ng-template>
         </li>
-        <li>
-          <h3>Email</h3>
-          {{ currentUser.email }}
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Mes Annonces</a>
+          <ng-template ngbNavContent>
+            <table class="table table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>Crée le</th>
+                  <th>Posté par</th>
+                  <th>Modeles</th>
+                  <th>Prix</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  app-advert
+                  *ngFor="let a of advertList; let i = index"
+                  [advert]="a"
+                >
+                  {{
+                    i
+                  }}
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
         </li>
-        <li>
-          <h3>Nom</h3>
-          {{ currentUser.lastName }}
+        <li [ngbNavItem]="3">
+          <a ngbNavLink>Mes Boutiques</a>
+          <ng-template ngbNavContent>
+            <table class="table table table-striped my-3">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>ID</th>
+                  <th>Nom</th>
+                  <th>Dirigeant</th>
+                  <th>Telephone</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  app-skateshop
+                  *ngFor="let s of skateshopList; let i = index"
+                  [skateshop]="s"
+                >
+                  {{
+                    i
+                  }}
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
         </li>
-        <li>
-          <h3>Prenom</h3>
-          {{ currentUser.firstName }}
-        </li>
-        <li>
-          <h3>Téléphone</h3>
-          {{ currentUser.phone }}
-        </li>
-        <li>
-          <h3>Numero de siret</h3>
-          {{ currentUser.siretNumber }}
-        </li>
-        <li><button class="btn btn-success">Editer</button></li>
       </ul>
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      <button class="btn btn-danger" (click)="logout()">Deconection</button>
     </div>
   </div>
-
-  <button class="btn btn-danger" (click)="logout()">Deconection</button>
 </section>
