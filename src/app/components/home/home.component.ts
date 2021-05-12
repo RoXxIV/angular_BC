@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Advert } from '../../model/advert';
 import { AdvertHttpService } from '../../services/advert-http.service';
@@ -13,7 +13,8 @@ import { ApiplatformCollection } from '../../model/apiplatformCollection';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
 
@@ -30,15 +31,15 @@ export class HomeComponent implements OnInit {
   // Gestion du select Marque
   selectedBrand(brand: any): any{
 
-    this.advertHttpService.findAll().subscribe(
-      m => this.AdvertList = m['hydra:member']
-      .filter(p => p.model['brand']['name'] === brand),
+      this.advertHttpService.findAll().subscribe(
+         m => this.AdvertList = m['hydra:member']
+          .filter(p => p.model['brand']['name'] === brand),
       error => {
           console.log(error);
         }
     );
     // gestion des modeles en fonction de la marque choisis
-    this.modelHttpService.findAll().subscribe
+      this.modelHttpService.findAll().subscribe
     (
       m => this.models = m['hydra:member']
       .filter(
@@ -104,7 +105,8 @@ export class HomeComponent implements OnInit {
   }
   // suppression des filtres de recherche
   initAdverts(): void {
-    this.filterisActivated = true;
+    this.filterisActivated = false;
+    (document.getElementById('filter') as HTMLFormElement).reset();
     return this.displayAdverts();
   }
   displayAdverts(): any{

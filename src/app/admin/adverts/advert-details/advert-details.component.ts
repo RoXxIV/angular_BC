@@ -11,8 +11,10 @@ import { AdvertHttpService } from '../../../services/advert-http.service';
 export class AdvertDetailsComponent implements OnInit {
 
   advertDetail: Advert;
+
   constructor(private route: ActivatedRoute, private advertHttpService: AdvertHttpService, private router: Router) { }
 
+  // delete the advert
   deleteAdvert(): void{
     this.advertHttpService.deleteOne(this.advertDetail.id).subscribe(
       v => this.router.navigateByUrl('/adverts'),

@@ -4,9 +4,7 @@
   <div class="d-flex justify-content-center my-5">
     <img class="img-fluid" src="../../../assets/img/account.jpg" alt="" />
   </div>
-  <a href="index.php" class="cta">
-    <span><i class="fas fa-arrow-left"></i> Retour a l'accueil</span>
-  </a>
+  <app-back-home></app-back-home>
   <div class="row my-5">
     <div class="col-10 col-md-10 mx-auto text-center">
       <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
@@ -39,6 +37,11 @@
                 {{ currentUser.siretNumber }}
               </li>
               <li><button class="btn btn-success">Editer</button></li>
+              <li *ngIf="isAdmin()" class="mt-3">
+                <button routerLink="/admin" class="btn btn-primary">
+                  Interface Admin
+                </button>
+              </li>
             </ul>
           </ng-template>
         </li>

@@ -1,40 +1,39 @@
-<!--Gestion des erreurs-->
-<ul *ngIf="submitted">
-  <li *ngIf="advertForm.controls['description']?.errors?.required">
-    <div class="alert alert-danger" role="alert">
-      Le champs Description est vide ou incorrect
-    </div>
-  </li>
-  <li *ngIf="advertForm.controls['width']?.errors?.required">
-    <div class="alert alert-danger" role="alert">
-      Le champs Largeur est vide ou incorrect
-    </div>
-  </li>
-  <li *ngIf="advertForm.controls['length']?.errors?.required">
-    <div class="alert alert-danger" role="alert">
-      Le champs Longueur est vide ou incorrect
-    </div>
-  </li>
-  <li *ngIf="advertForm.controls['shape']?.errors?.required">
-    <div class="alert alert-danger" role="alert">
-      Le champs Shape est vide ou incorrect
-    </div>
-  </li>
-  <li *ngIf="advertForm.controls['concave']?.errors?.required">
-    <div class="alert alert-danger" role="alert">
-      Le champs Concave est vide ou incorrect
-    </div>
-  </li>
-  <li *ngIf="advertForm.controls['picturePath']?.errors?.required">
-    <div class="alert alert-danger" role="alert">
-      Le champs Photo est vide ou incorrect
-    </div>
-  </li>
-</ul>
 <section class="row">
   <div class="col-10 col-md-8 mx-auto">
     <h1 class="my-5">Ajouter une annonces</h1>
-    <!--Description-->
+    <!--Gestion des erreurs-->
+    <ul *ngIf="submitted">
+      <li *ngIf="advertForm.controls['description']?.errors?.required">
+        <div class="alert alert-danger" role="alert">
+          Le champs Description est vide ou incorrect
+        </div>
+      </li>
+      <li *ngIf="advertForm.controls['width']?.errors?.required">
+        <div class="alert alert-danger" role="alert">
+          Le champs Largeur est vide ou incorrect
+        </div>
+      </li>
+      <li *ngIf="advertForm.controls['length']?.errors?.required">
+        <div class="alert alert-danger" role="alert">
+          Le champs Longueur est vide ou incorrect
+        </div>
+      </li>
+      <li *ngIf="advertForm.controls['shape']?.errors?.required">
+        <div class="alert alert-danger" role="alert">
+          Le champs Shape est vide ou incorrect
+        </div>
+      </li>
+      <li *ngIf="advertForm.controls['concave']?.errors?.required">
+        <div class="alert alert-danger" role="alert">
+          Le champs Concave est vide ou incorrect
+        </div>
+      </li>
+      <li *ngIf="advertForm.controls['picturePath']?.errors?.required">
+        <div class="alert alert-danger" role="alert">
+          Le champs Photo est vide ou incorrect
+        </div>
+      </li>
+    </ul>
     <form [formGroup]="advertForm" (ngSubmit)="submitForm()">
       <div class="form-group">
         <label for="formDescription">Description</label>

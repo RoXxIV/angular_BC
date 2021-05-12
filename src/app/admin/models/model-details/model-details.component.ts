@@ -63,9 +63,6 @@ export class ModelDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*const id = this.route.snapshot.paramMap.get('id');
-    this.modelHttpService.findById(Number(id)).subscribe(model => this.modelDetail = model);
-    */
    this.getModelDetails(this.route.snapshot.params.id);
    this.brandHttpService.findAll().subscribe(m => this.brands = m['hydra:member']);
   }

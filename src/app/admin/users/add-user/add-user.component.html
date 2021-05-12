@@ -1,99 +1,104 @@
-<!--Gestion des erreurs-->
-<ul *ngIf="submitted">
-  <li *ngIf="userForm.controls['username']?.errors?.required">
-    Le champs username est vide ou incorrect
-  </li>
-  <li *ngIf="userForm.controls['password']?.errors?.required">
-    Le champs password est vide ou incorrect
-  </li>
-  <li *ngIf="userForm.controls['email']?.errors?.required">
-    Le champs email est vide ou incorrect
-  </li>
-  <li *ngIf="userForm.controls['lastName']?.errors?.required">
-    Le champs lastName est vide ou incorrect
-  </li>
-  <li *ngIf="userForm.controls['firstName']?.errors?.required">
-    Le champs firstName est vide ou incorrect
-  </li>
-  <li *ngIf="userForm.controls['siretNumber']?.errors?.required">
-    Le champs siretNumber est vide ou incorrect
-  </li>
-  <li *ngIf="userForm.controls['phone']?.errors?.required">
-    Le champs phone est vide ou incorrect
-  </li>
-</ul>
+<section class="row">
+  <div class="col-10 col-md-8 mx-auto">
+    <h1 class="my-5">Ajouter une annonces</h1>
+    <!--Gestion des erreurs-->
+    <ul *ngIf="submitted">
+      <li *ngIf="userForm.controls['username']?.errors?.required">
+        Le champs username est vide ou incorrect
+      </li>
+      <li *ngIf="userForm.controls['password']?.errors?.required">
+        Le champs password est vide ou incorrect
+      </li>
+      <li *ngIf="userForm.controls['email']?.errors?.required">
+        Le champs email est vide ou incorrect
+      </li>
+      <li *ngIf="userForm.controls['lastName']?.errors?.required">
+        Le champs lastName est vide ou incorrect
+      </li>
+      <li *ngIf="userForm.controls['firstName']?.errors?.required">
+        Le champs firstName est vide ou incorrect
+      </li>
+      <li *ngIf="userForm.controls['siretNumber']?.errors?.required">
+        Le champs siretNumber est vide ou incorrect
+      </li>
+      <li *ngIf="userForm.controls['phone']?.errors?.required">
+        Le champs phone est vide ou incorrect
+      </li>
+    </ul>
 
-<!--Description-->
-<form [formGroup]="userForm" (ngSubmit)="submitForm()">
-  <div class="form-group">
-    <label for="formUsername">Pseudo</label>
-    <input
-      class="form-control"
-      type="text"
-      id="formUsername"
-      formControlName="username"
-    />
-  </div>
+    <!--Description-->
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="formUsername">Pseudo</label>
+        <input
+          class="form-control"
+          type="text"
+          id="formUsername"
+          formControlName="username"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formPassword">mot de passe</label>
-    <input
-      class="form-control"
-      type="text"
-      id="formPassword"
-      formControlName="password"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formPassword">mot de passe</label>
+        <input
+          class="form-control"
+          type="text"
+          id="formPassword"
+          formControlName="password"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formEmail">email</label>
-    <input
-      class="form-control"
-      type="email"
-      id="formEmail"
-      formControlName="email"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formEmail">email</label>
+        <input
+          class="form-control"
+          type="email"
+          id="formEmail"
+          formControlName="email"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formLastName">Nom</label>
-    <input
-      class="form-control"
-      type="text"
-      id="formLastName"
-      formControlName="lastName"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formLastName">Nom</label>
+        <input
+          class="form-control"
+          type="text"
+          id="formLastName"
+          formControlName="lastName"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formFirstName">Prenom</label>
-    <input
-      class="form-control"
-      type="text"
-      id="formFirstName"
-      formControlName="firstName"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formFirstName">Prenom</label>
+        <input
+          class="form-control"
+          type="text"
+          id="formFirstName"
+          formControlName="firstName"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formSiretNumber">Numero de siret</label>
-    <input
-      class="form-control"
-      type="text"
-      id="formSiretNumber"
-      formControlName="siretNumber"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formSiretNumber">Numero de siret</label>
+        <input
+          class="form-control"
+          type="text"
+          id="formSiretNumber"
+          formControlName="siretNumber"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formPhone">Téléphone</label>
-    <input
-      class="form-control"
-      type="text"
-      id="formPhone"
-      formControlName="phone"
-    />
+      <div class="form-group">
+        <label for="formPhone">Téléphone</label>
+        <input
+          class="form-control"
+          type="text"
+          id="formPhone"
+          formControlName="phone"
+        />
+      </div>
+      <button type="submit" class="btn btn-success my-2">Ajouter</button>
+    </form>
+    <button routerLink="/users" class="btn btn-info">Retour</button>
   </div>
-  <button type="submit" class="btn btn-success my-2">Ajouter</button>
-</form>
-<button routerLink="/users" class="btn btn-info">Retour</button>
+</section>

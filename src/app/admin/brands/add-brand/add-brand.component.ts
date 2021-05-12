@@ -13,10 +13,9 @@ export class AddBrandComponent implements OnInit {
   brandForm: FormGroup;
   submitted = false;
 
-
-
   constructor(private fb: FormBuilder, private brandHttpService: BrandHttpService) { }
 
+  // add a new brand
   submitForm(): void {
     this.submitted = true;
     if (this.brandForm.valid){

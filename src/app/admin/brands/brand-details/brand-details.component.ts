@@ -18,6 +18,7 @@ export class BrandDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private brandHttpService: BrandHttpService, private router: Router) { }
 
+  // Get the selected brand
   getBrandDetails(id: number): void {
     this.brandHttpService.findById(id)
       .subscribe(
@@ -29,6 +30,7 @@ export class BrandDetailsComponent implements OnInit {
           console.log(error);
         });
   }
+  // Edit the selected brand
   updateBrand(): void {
     this.brandHttpService.update(this.currentBrand.id, this.currentBrand)
       .subscribe(
@@ -40,6 +42,8 @@ export class BrandDetailsComponent implements OnInit {
           console.log(error);
         });
   }
+
+  // Delete the selected brand
   deleteBrand(): void {
     this.brandHttpService.deleteOne(this.currentBrand.id)
       .subscribe(
@@ -51,7 +55,9 @@ export class BrandDetailsComponent implements OnInit {
           console.log(error);
         });
   }
+
   ngOnInit(): void {
+    // get brand id from url
     this.getBrandDetails(this.route.snapshot.params.id);
   }
 }

@@ -11,8 +11,11 @@ export class TokenStorageService {
 
   constructor() { }
 
+
   saveToken(token: string): void{
+    // if a token already exist, delete it
     window.sessionStorage.removeItem(TOKEN_KEY);
+    // save the new token
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
@@ -26,9 +29,7 @@ export class TokenStorageService {
     if (user) {
       console.log('ici', user);
       return JSON.parse(user);
-
     }
-
     return {};
   }
 

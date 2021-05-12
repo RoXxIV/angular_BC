@@ -3,7 +3,7 @@
   <img class="img-fluid" src="assets/img/banniere(2).png" alt="" />
 </div>
 <section id="filtres" class="container-fluid">
-  <form>
+  <form id="filter">
     <!--marque liste-->
     <div class="row">
       <div div id="blocBrand" class="col-6 col-sm-4 col-md-3 test">
@@ -91,7 +91,10 @@
     </div>
   </form>
   <div *ngIf="filterisActivated" class="my-5">
-    <i (click)="initAdverts()" class="fas fa-times deleteFilter"></i>
+    <span (click)="initAdverts()" class="deleteFilter">
+      <i class="fas fa-times deleteFilter"></i>
+      supprimer les filtres
+    </span>
   </div>
 </section>
 

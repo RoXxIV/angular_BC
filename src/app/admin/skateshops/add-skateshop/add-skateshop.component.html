@@ -1,78 +1,85 @@
-<!--Gestion des erreurs-->
-<ul *ngIf="submitted">
-  <li *ngIf="skateshopForm.controls['name']?.errors?.required">
-    Le champs Nom est vide ou incorrect
-  </li>
-  <li *ngIf="skateshopForm.controls['street']?.errors?.required">
-    Le champs Rue est vide ou incorrect
-  </li>
-  <li *ngIf="skateshopForm.controls['zipCode']?.errors?.required">
-    Le champs Code Postal est vide ou incorrect
-  </li>
-  <li *ngIf="skateshopForm.controls['city']?.errors?.required">
-    Le champs Ville est vide ou incorrect
-  </li>
-  <li *ngIf="skateshopForm.controls['phone']?.errors?.required">
-    Le champs Telephone est vide ou incorrect
-  </li>
-</ul>
-<form [formGroup]="skateshopForm" (ngSubmit)="submitForm()">
-  <div class="form-group">
-    <label for="formName">Nom du skateshop</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="name"
-      id="formName"
-    />
-  </div>
+<section class="row">
+  <div class="col-10 col-md-8 mx-auto">
+    <h1 class="my-5">Ajouter une Boutique</h1>
+    <!--Gestion des erreurs-->
+    <ul *ngIf="submitted">
+      <li *ngIf="skateshopForm.controls['name']?.errors?.required">
+        Le champs Nom est vide ou incorrect
+      </li>
+      <li *ngIf="skateshopForm.controls['street']?.errors?.required">
+        Le champs Rue est vide ou incorrect
+      </li>
+      <li *ngIf="skateshopForm.controls['zipCode']?.errors?.required">
+        Le champs Code Postal est vide ou incorrect
+      </li>
+      <li *ngIf="skateshopForm.controls['city']?.errors?.required">
+        Le champs Ville est vide ou incorrect
+      </li>
+      <li *ngIf="skateshopForm.controls['phone']?.errors?.required">
+        Le champs Telephone est vide ou incorrect
+      </li>
+    </ul>
+    <form [formGroup]="skateshopForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="formName">Nom du skateshop</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          id="formName"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formStreet">Rue</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="street"
-      id="formStreet"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formStreet">Rue</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="street"
+          id="formStreet"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formZipCode">Code Postal</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="zipCode"
-      id="formZipCode"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formZipCode">Code Postal</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="zipCode"
+          id="formZipCode"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formCity">Ville</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="city"
-      id="formCity"
-    />
-  </div>
+      <div class="form-group">
+        <label for="formCity">Ville</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="city"
+          id="formCity"
+        />
+      </div>
 
-  <div class="form-group">
-    <label for="formPhone">Telephone</label>
-    <input
-      type="text"
-      class="form-control"
-      formControlName="phone"
-      id="formPhone"
-    />
+      <div class="form-group">
+        <label for="formPhone">Telephone</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="phone"
+          id="formPhone"
+        />
+      </div>
+      <div formGroupName="professional">
+        <label for="userid">Professional</label>
+        <select class="ml-2" formControlName="id" id="userid">
+          <option [value]="p.id" *ngFor="let p of professionals">
+            {{ p.firstName }} {{ p.lastName }}
+          </option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success my-2">Ajouter</button>
+    </form>
+    <button routerLink="/skateshops" class="btn btn-info">Retour</button>
   </div>
-  <div formGroupName="professional">
-    <label for="userid">Professional</label>
-    <select formControlName="id" id="userid">
-      <option [value]="p.id" *ngFor="let p of professionals">
-        {{ p.firstName }} {{ p.lastName }}
-      </option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-success my-2">Ajouter</button>
-</form>
+  <hr />
+</section>

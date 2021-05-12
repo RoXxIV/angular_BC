@@ -9,6 +9,7 @@ import { Brand } from '../../../model/brand';
 })
 export class BrandComponent implements OnInit {
 
+  // get brand from brand-list
   @Input() brand: Brand;
 
   constructor() { }

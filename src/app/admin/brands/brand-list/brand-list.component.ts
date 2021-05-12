@@ -13,9 +13,12 @@ import { BrandHttpService } from '../../../services/brand-http.service';
 export class BrandListComponent implements OnInit {
 
   brandList: Observable<Brand[]>;
+  // collapse from ng-bootstrap
+  public isCollapsed = true;
 
   constructor(private brandHttpService: BrandHttpService) { }
   ngOnInit(): void {
+    // Get all brands
     this.brandHttpService.findAll().subscribe(
       m => this.brandList = m['hydra:member'],
       error => {

@@ -37,6 +37,7 @@ import { AccountPageComponent } from './components/account-page/account-page.com
 import { AuthGuardService } from './guards/auth.guard';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { AuthAdminGuardService } from './guards/authAdmin.guard';
+import { BackHomeComponent } from './components/back-home/back-home.component';
 
 
 const routes: Routes = [
@@ -101,6 +102,7 @@ export function getToken() {
     AddSkateshopComponent,
     LoginComponent,
     AccountPageComponent,
+    BackHomeComponent,
 
   ],
   imports: [

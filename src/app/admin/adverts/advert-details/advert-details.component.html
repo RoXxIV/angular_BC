@@ -1,59 +1,60 @@
 <section class="row">
   <div class="col-10 col-md-8 mx-auto">
-    <h2 class="my-4 text-center">Gestion des Annonces</h2>
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>ID</th>
-          <th>Créer le</th>
-          <th>Posté par</th>
-          <th>Modele</th>
-          <th>Marque</th>
-          <th>Prix</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ advertDetail?.id }}</td>
-          <td>{{ advertDetail?.released_at | date: "dd/MM/YYYY" }}</td>
-          <td>{{ advertDetail?.skateshop["name"] }}</td>
-          <td>{{ advertDetail?.model["brand"]["name"] }}</td>
-          <td>{{ advertDetail?.model["name"] }}</td>
-          <td>{{ advertDetail?.price / 100 }}</td>
-          <td>
-            <button (click)="deleteAdvert()" class="btn btn-danger">
-              Supprimer
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-center my-5">
-      <img src="assets/{{ advertDetail?.picturePath }}" alt="" />
+    <h1 class="my-5 text-center">
+      <strong>Annonce numero:</strong> {{ advertDetail?.id }}
+    </h1>
+    <div>
+      <ul>
+        <li>
+          <p>
+            <strong>Créer le</strong>
+            {{ advertDetail?.released_at | date: "dd/MM/YYYY" }}
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Posté par</strong> {{ advertDetail?.skateshop["name"] }}
+          </p>
+        </li>
+        <li>
+          <p><strong>Modele</strong> {{ advertDetail?.model["name"] }}</p>
+        </li>
+        <li>
+          <p>
+            <strong>Marque</strong> {{ advertDetail?.model["brand"]["name"] }}
+          </p>
+        </li>
+        <li>
+          <p><strong>Prix</strong> {{ advertDetail?.price / 100 }}</p>
+        </li>
+        <li>
+          <div class="text-center my-5">
+            <img src="assets/{{ advertDetail?.picturePath }}" alt="" />
+          </div>
+        </li>
+        <li>
+          <strong>Description</strong>
+          <p>{{ advertDetail?.description }}</p>
+        </li>
+        <li>
+          <p><strong>Length</strong> {{ advertDetail?.length }}</p>
+        </li>
+        <li>
+          <p><strong>Width</strong> {{ advertDetail?.width }}</p>
+        </li>
+        <li>
+          <p><strong>Shape</strong> {{ advertDetail?.shape }}</p>
+        </li>
+        <li>
+          <p><strong>Concave</strong> {{ advertDetail?.concave }}</p>
+        </li>
+        <li class="mt-4">
+          <button (click)="deleteAdvert()" class="btn btn-danger">
+            Supprimer
+          </button>
+        </li>
+      </ul>
     </div>
-    <ul>
-      <li>
-        <h3>Description</h3>
-        {{ advertDetail?.description }}
-      </li>
-      <li>
-        <h3>Length</h3>
-        {{ advertDetail?.length }}
-      </li>
-      <li>
-        <h3>Width</h3>
-        {{ advertDetail?.width }}
-      </li>
-      <li>
-        <h3>Shape</h3>
-        {{ advertDetail?.shape }}
-      </li>
-      <li>
-        <h3>Concave</h3>
-        {{ advertDetail?.concave }}
-      </li>
-    </ul>
     <button routerLink="/adverts" class="btn btn-primary">Retour</button>
   </div>
 </section>

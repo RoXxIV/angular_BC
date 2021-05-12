@@ -14,6 +14,7 @@ export class AdvertListComponent implements OnInit {
 
   constructor(private advertHttpService: AdvertHttpService) { }
   ngOnInit(): void {
+    // get all adverts
     this.advertHttpService.findAll().subscribe(
       m => this.advertList = m['hydra:member'],
       error => {

@@ -1,6 +1,14 @@
 /*-_-_-_-_-_-_-_-_-_-_POLICES-_-_-_-_-_-_-_-_-_-_*/
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
+/*-_-_-_-_-_-_-_-_-_-_VARIABLES-_-_-_-_-_-_-_-_-_-_*/
+:root {
+  --rouge: #8c0b0a;
+  --bleu: #1b272c;
+  --blanc: #ebebeb;
+  --gris: #f1f5f7;
+}
+
 /*-_-_-_-_-_-_-_-_-_-_GLOBAL-_-_-_-_-_-_-_-_-_-_*/
 * {
   box-sizing: border-box;
@@ -16,101 +24,40 @@
 }
 
 html {
-  font-size: 62.5%
-}
+  font-size: 62.5%;
 
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 1.6rem;
-  line-height: 1.6;
-  color: var(--bleu);
-}
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--bleu);
 
-a,
-a:hover,
-a:visited,
-a:active {
-  text-decoration: none;
-  color: inherit;
-}
+      a,
+      a:hover,
+      a:visited,
+      a:active {
+        text-decoration: none;
+        color: inherit;
+      }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-}
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
 
-#logo,
-select,
-#annonces,
-#description button,
-footer,
-#article span,
-#article #prix,
-#article text,
-#article h2 {
-  font-family: "Bebas Neue", cursive;
-}
-
-/*-_-_-_-_-_-_-_-_-_-_VARIABLES-_-_-_-_-_-_-_-_-_-_*/
-:root {
-  --rouge: #8c0b0a;
-  --bleu: #1b272c;
-  --blanc: #ebebeb;
-  --gris: #f1f5f7;
-}
-
-#card-brand {
-  transition: all 550ms ease;
-  backface-visibility: hidden;
-}
-
-#card:hover #card-brand {
-  -webkit-transform: scale(2.5);
-  -ms-transform: scale(2.5);
-  transform: scale(2.5);
-}
-
-#card-img {
-  transition: all 700ms ease;
-  backface-visibility: hidden;
-}
-
-#card:hover #card-img {
-  -webkit-transform: scale(0.95);
-  -ms-transform: scale(0.95);
-  transform: scale(0.95);
-}
-
-.cta {
-  position: relative;
-  margin: auto;
-  padding: 19px 22px;
-  transition: all 0.2s ease;
-}
-
-.cta::before {
-  content: "";
-  position: absolute;
-  top: 80%;
-  left: 13%;
-  display: block;
-  background-color: var(--bleu);
-  width: 0px;
-  height: 1.5px;
-  transition: all 0.3s ease;
-}
-
-.cta span {
-  position: relative;
-
-  line-height: 18px;
-
-  vertical-align: middle;
-}
-
-.cta:hover::before {
-  width: 75%;
+      #logo,
+      select,
+      #annonces,
+      #description button,
+      footer,
+      #article span,
+      #article #prix,
+      #article text,
+      #article h2 {
+        font-family: "Bebas Neue", cursive;
+      }
+  }
 }
 
 /* Importing Bootstrap SCSS file. */

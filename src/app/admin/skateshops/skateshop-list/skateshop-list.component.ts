@@ -14,6 +14,7 @@ export class SkateshopListComponent implements OnInit {
 
   constructor(private skateshopHttpService: SkateshopHttpService) { }
 
+  // Get all skateshops
   ngOnInit(): void {
     this.skateshopHttpService.findAll().subscribe(
       m => this.skateshopList = m['hydra:member'],

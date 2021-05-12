@@ -1,6 +1,6 @@
-<div class="row">
-  <div class="col-md-8 mx-auto">
-    <h2 class="my-4 text-center">Gestion des Modeles</h2>
+<section class="row">
+  <div class="col-12 col-md-10 mx-auto">
+    <h1 class="my-5 text-center">Gestion des Modeles</h1>
     <table class="table table table-striped">
       <thead class="thead-dark">
         <tr>
@@ -19,8 +19,26 @@
         </tr>
       </tbody>
     </table>
-    <app-add-model></app-add-model>
+    <hr />
+    <p>
+      <button
+        type="button"
+        class="btn btn-info"
+        (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample"
+      >
+        Ajouter un modele
+      </button>
+    </p>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="card">
+        <div class="card-body">
+          <app-add-model></app-add-model>
+        </div>
+      </div>
+    </div>
     <hr />
     <button routerLink="/admin" class="btn btn-info">Retour</button>
   </div>
-</div>
+</section>

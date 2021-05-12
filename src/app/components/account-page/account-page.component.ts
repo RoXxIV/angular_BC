@@ -6,7 +6,7 @@ import { Skateshop } from '../../model/skateshop';
 import { SkateshopHttpService } from '../../services/skateshop-http.service';
 import { Advert } from '../../model/advert';
 import { AdvertHttpService } from '../../services/advert-http.service';
-
+const USER_KEY = 'auth-user';
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
@@ -18,6 +18,7 @@ export class AccountPageComponent implements OnInit {
   skateshopList: Observable<Skateshop[]>;
   advertList: Observable<Advert[]>;
   active = 1;
+  adminAcces = false;
 
   constructor(private token: TokenStorageService, private skateshopHttpService: SkateshopHttpService,
               private advertHttpService: AdvertHttpService) { }
@@ -26,6 +27,16 @@ export class AccountPageComponent implements OnInit {
     this.token.signOut();
     window.location.reload();
   }
+
+  isAdmin(): boolean {
+      const user = window.sessionStorage.getItem(USER_KEY);
+      const AdminCheck = JSON.parse(user);
+      // tslint:disable-next-line:triple-equals
+      if (AdminCheck.roles == 'ROLES_ADMIN'){
+        return this.adminAcces = true;
+      }
+      return false;
+    }
   ngOnInit(): void {
      this.currentUser = this.token.getUser();
 

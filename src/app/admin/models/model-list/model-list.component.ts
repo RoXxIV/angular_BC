@@ -11,8 +11,11 @@ import { ModelHttpService } from '../../../services/model-http.service';
 export class ModelListComponent implements OnInit {
 
   modelList: Observable<Model[]>;
+  // collapse from ng-bootstrap
+  public isCollapsed = true;
 
   constructor(private modelHttpService: ModelHttpService) { }
+  // Get all models
   ngOnInit(): void {
     this.modelHttpService.findAll().subscribe(
       m => this.modelList = m['hydra:member'],
