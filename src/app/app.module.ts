@@ -40,6 +40,7 @@ import { AuthAdminGuardService } from './guards/authAdmin.guard';
 import { BackHomeComponent } from './components/back-home/back-home.component';
 
 
+
 const routes: Routes = [
   {path: 'admin', component: AdminHomeComponent, canActivate: [AuthAdminGuardService]},
   {path: 'brands', component: BrandListComponent},
@@ -103,6 +104,7 @@ export function getToken() {
     LoginComponent,
     AccountPageComponent,
     BackHomeComponent,
+
 
   ],
   imports: [

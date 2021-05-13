@@ -42,6 +42,11 @@
                   Interface Admin
                 </button>
               </li>
+              <li>
+                <button class="btn btn-danger" (click)="logout()">
+                  Deconection
+                </button>
+              </li>
             </ul>
           </ng-template>
         </li>
@@ -77,34 +82,41 @@
         <li [ngbNavItem]="3">
           <a ngbNavLink>Mes Boutiques</a>
           <ng-template ngbNavContent>
-            <table class="table table table-striped my-3">
-              <thead class="thead-dark">
-                <tr>
-                  <th>#</th>
-                  <th>ID</th>
-                  <th>Nom</th>
-                  <th>Dirigeant</th>
-                  <th>Telephone</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  app-skateshop
-                  *ngFor="let s of skateshopList; let i = index"
-                  [skateshop]="s"
-                >
-                  {{
-                    i
-                  }}
-                </tr>
-              </tbody>
-            </table>
+            <div class="d-flex row">
+              <ul
+                *ngFor="let s of skateshopList; let i = index"
+                class="col-12 col-md-6"
+              >
+                <li>
+                  <h3 class="shopName">{{ s.name }}</h3>
+                </li>
+                <li>
+                  <strong>Contact</strong>
+                  <ul>
+                    <li>Tel: {{ s.phone }}</li>
+                    <li>Email: {{ s.professional["email"] }}</li>
+                    <li><strong>Adresse</strong></li>
+                    <li>Rue: {{ s.street }}</li>
+                    <li>Code postal: {{ s.zipCode }}</li>
+                    <li>Ville: {{ s.city }}</li>
+                  </ul>
+                </li>
+                <li>
+                  <ul class="d-flex justify-content-center mt-2">
+                    <li>
+                      <button class="btn btn-success mr-3">Editer</button>
+                    </li>
+                    <li>
+                      <button class="btn btn-danger">Supprimer</button>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </ng-template>
         </li>
       </ul>
       <div [ngbNavOutlet]="nav" class="mt-2"></div>
-      <button class="btn btn-danger" (click)="logout()">Deconection</button>
     </div>
   </div>
 </section>
